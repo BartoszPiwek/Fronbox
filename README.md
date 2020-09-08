@@ -17,7 +17,7 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 
 ## Playground
 
-[![Link to playground](https://codesandbox.io/static/img/banner.png)](https://codesandbox.io/s/frontbox-1zmgu)
+[![Link to playground](https://codesandbox.io/static/img/banner.png)](https://codesandbox.io/s/github/BartoszPiwek/FrontBox/tree/master/)
 
 ## Preview/Status
 

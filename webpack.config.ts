@@ -4,12 +4,11 @@ import CopyWebpackPlugin from "copy-webpack-plugin";
 import FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
-import style from "./webpack/style.webpack";
-import script from "./webpack/script.webpack";
-import html from "./webpack/html.webpack";
-import file from "./webpack/file.webpack";
-import svg from "./webpack/svg.webpack";
-import optimize from "./webpack/optimize.webpack";
+import style from "./builder/style.webpack";
+import script from "./builder/script.webpack";
+import html from "./builder/html.webpack";
+import file from "./builder/file.webpack";
+import svg from "./builder/svg.webpack";
 
 // @ts-ignore
 module.exports = (env, args): webpack.Configuration => {
@@ -68,7 +67,6 @@ module.exports = (env, args): webpack.Configuration => {
       ...html.plugin,
       ...script.plugin,
       ...style.plugin,
-      ...optimize.plugin(args.mode),
       new FriendlyErrorsPlugin({
         clearConsole: true,
       }),
