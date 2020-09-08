@@ -1,4 +1,5 @@
 import webpack from "webpack";
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const moduleRule: webpack.RuleSetRule = {
   test: /\.(png|jpe?g|gif)$/i,
@@ -13,6 +14,12 @@ const moduleRule: webpack.RuleSetRule = {
   ],
 };
 
-const plugin: Array<any> = []
+const plugin: Array<any> = [
+  new FaviconsWebpackPlugin({
+    logo: './src/static/favicon.png',
+    cache: true,
+    inject: true,
+  })
+]
 
 export default { moduleRule, plugin }
