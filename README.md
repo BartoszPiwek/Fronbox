@@ -28,8 +28,6 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 
 ## Information
 
-Project contain [FrontBox-Style](https://github.com/BartoszPiwek/FrontBox-Style) package.
-
 |            |                                              |
 | ---------- | -------------------------------------------- |
 | Author     | Bartosz Piwek                                |
