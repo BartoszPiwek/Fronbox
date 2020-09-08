@@ -31,7 +31,7 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 |            |                                              |
 | ---------- | -------------------------------------------- |
 | Author     | Bartosz Piwek                                |
-| Version    | 0.0.1                                        |
+| Version    | 0.1                                          |
 | HTML       | [Pug](https://pugjs.org/)                    |
 | CSS        | [SCSS](https://sass-lang.com)                |
 | JavaScript | [TypeScript](https://www.typescriptlang.org) |
@@ -107,4 +107,4 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 
 ## Bugs
 
-Feel free to [create bug issues](https://github.com/BartoszPiwek/FrontBox-Static-Webpack/issues/new?labels=bug).
+Feel free to [create bug issues](https://github.com/BartoszPiwek/FrontBox/issues/new?labels=bug).

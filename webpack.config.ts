@@ -49,9 +49,9 @@ module.exports = (env, args): webpack.Configuration => {
       rules: [
         html.moduleRule,
         script.moduleRule,
-        style.moduleRule(args.mode),
         file.moduleRule,
-        svg.moduleRule
+        svg.moduleRule,
+        style.moduleRule(args.mode),
       ],
     },
     plugins: [

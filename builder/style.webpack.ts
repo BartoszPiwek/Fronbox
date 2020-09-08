@@ -33,7 +33,7 @@ const moduleRule = (mode: string): webpack.RuleSetRule => {
               ],
             }),
             uncss.postcssPlugin({
-              html: `./dist/**/*.html`,
+              html: `./**/*.html`,
               ignore: uncssIgnore,
               ignoreSheets: uncssIgnoreSheets,
               htmlroot: `./dist/`,
