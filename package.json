@@ -1,6 +1,6 @@
 {
 	"name": "@bpiwek/frontbox",
-	"version": "0.1",
+	"version": "0.1.0",
 	"author": "Bartosz Piwek",
 	"homepage": "https://github.com/BartoszPiwek/FrontBox",
 	"main": "src/index.ts",
