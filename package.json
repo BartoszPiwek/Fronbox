@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/BartoszPiwek/FrontBox-Static-Website",
 	"main": "src/index.ts",
 	"scripts": {
-		"start": "nodemon --watch webpack.config.ts --exec \"webpack-dev-server --port 8000 --mode development\"",
+		"start": "nodemon --watch webpack.config.ts --exec \"webpack-dev-server --disable-host-check --port 8000 --mode development\"",
 		"doc": "docify serve docs",
 		"build": "webpack --mode production"
 	},
