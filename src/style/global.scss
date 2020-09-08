@@ -1,0 +1,14 @@
+/*!
+ * FrontBox Static Webpack 0.0.1
+ * Bartosz Piwek
+ * https://github.com/BartoszPiwek/FrontBox-Static-Webpack
+ */
+
+@import '~@bpiwek/frontbox-style';
+
+@include browser-reset-style;
+
+@import './variables';
+@import './global/*';
+@import './../components/**/*.scss';
+@import './../services/**/*.scss';

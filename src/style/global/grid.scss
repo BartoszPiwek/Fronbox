@@ -1,0 +1,5 @@
+.row {
+	@extend %grid-style;
+}
+
+@include grid($grid-count: 12);

@@ -1,0 +1,21 @@
+node_modules/
+.tscache
+.vscode
+*.log
+*.lock
+.idea
+
+# Config
+.stylelintrc
+
+# Generated
+doc
+log
+src/favicons/
+!src/favicons/.gitkeep
+yarn-error.log
+dist
+
+# Maps
+*.map.*
+*.map

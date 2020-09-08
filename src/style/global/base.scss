@@ -1,0 +1,23 @@
+body,
+html {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+* {
+	hyphens: auto;
+	touch-action: manipulation;
+
+	// Mobile tap color highlight
+	-webkit-tap-highlight-color: color('third');
+
+	// Text selection color
+	&::selection {
+		background: color('third');
+		fill: color('white');
+		color: color('white');
+	}
+}

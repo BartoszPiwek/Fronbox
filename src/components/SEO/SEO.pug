@@ -1,0 +1,24 @@
+mixin seo(params = {})
+  - const { title, description, keywords, image } = params;
+
+  title #{title}
+  meta(itemprop="name" content= title)
+  meta(name="twitter:title" content= title)
+  meta(property="og:title" content= title)
+
+  if description
+    meta(name="description" content= description)
+    meta(property="og:description" content= description)
+    meta(itemprop="description" content= description)
+    meta(name="twitter:description" content= description)
+
+  if keywords
+    meta(name="keywords" content= keywords)
+
+  if image
+    meta(property="og:image" content="images/og/" + image)
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:image:src" content="images/og/" + image)
+    meta(itemprop="image" content="images/og/" + image)
+
+  block

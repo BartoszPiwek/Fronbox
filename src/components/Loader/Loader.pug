@@ -1,0 +1,33 @@
+mixin loader(params = {})
+  -
+    const { createClassNames } = require("@utilities/pugParser");
+    const { 
+      className, 
+      id,
+      style, 
+      args, 
+      size = 'default', 
+      centered, 
+      fixed
+    } = params;
+
+    const classNames = createClassNames('loader', {
+      size,
+      type: {
+        centered,
+        fixed
+      }
+    });
+
+  .loader(
+    class = [
+      className,
+      classNames
+    ],
+    id = id,
+    style = style
+  )&attributes(args)
+    .loader__inner
+      div
+      div
+      div

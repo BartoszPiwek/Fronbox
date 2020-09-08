@@ -1,0 +1,54 @@
+.scrollable {
+	position: relative;
+	width: 100%;
+	height: calc(100% + 15px);
+	margin-top: -15px;
+
+	&__content {
+		@include scrollbar(5px, color('primary'), color('white'));
+
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	&__inner {
+		padding: 15px 0;
+	}
+
+	// Types
+	&--type-shadow {
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			// Gradient can't cover scrollbar
+			width: 80%;
+			height: 15px;
+			pointer-events: none;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+			transform: rotate(180deg);
+		}
+
+		// Shadow color
+		&.scrollable--color {
+			&-white {
+				&:before,
+				&:after {
+					background: linear-gradient(
+						180deg,
+						color('white') 50%,
+						transparentize(color('white'), 1) 100%
+					);
+				}
+			}
+		}
+	}
+}

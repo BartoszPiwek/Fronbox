@@ -1,0 +1,17 @@
+include ~@components/Loader/Loader
+include ~@components/Overlay/Overlay
+include ~@components/Icon/Icon
+include ~@components/Scrollable/Scrollable
+
+#modal.modal-service
+  +loader({className: 'modal-service__loader', centered: true, fixed: true})
+
+  .modal-service__wrapper
+    +overlay({id: 'modal-service-overlay'})
+
+    .modal-service__inner(data-scroll-lock-scrollable)
+      button#modal-service-close.modal-service-close.click-expand(type="button")
+        +icon('close.svg', { className: 'modal-service-close__button'})
+
+      +scrollable({className: 'modal-service__scrollable'})
+        #modal-content

@@ -1,0 +1,44 @@
+.btn {
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	padding: 12px 25px;
+	transition: background-color $time-transition, color $time-transition,
+		border-color $time-transition, transform $time-transition;
+	border: 0;
+	border-radius: 25px;
+	background-color: color('primary');
+	color: color('white');
+	font-family: font('noto-sans');
+	font-size: 14px;
+	font-weight: normal;
+	letter-spacing: 0.042px;
+	line-height: 19px;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-drag: none;
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	&.isDisabled,
+	&[disabled] {
+		transform: none !important;
+		pointer-events: none;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+			opacity: 0.6;
+			background: color('black');
+			pointer-events: none;
+		}
+	}
+}

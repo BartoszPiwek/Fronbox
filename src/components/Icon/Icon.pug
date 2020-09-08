@@ -1,0 +1,23 @@
+mixin icon(file, params = {})
+  - 
+    const { tag = 'svg', style, className = '' } = params;
+    const classes = `icon icon-${file.replace('.svg', '')} ${className.trim()}`;
+
+  case tag
+    when 'svg'
+      -
+        const svg = require(`@icons/${file}`);
+        const styleString = style ? `style="${style}"` : '';
+        const output = svg.replace(`<svg`, `<svg class="${classes}" ${styleString}`);
+
+      != output
+
+    when 'img'
+      img.icon(
+        class= [
+          className,
+          classes
+        ],
+        style= style,
+        src=`static/icons/${file}`
+      )

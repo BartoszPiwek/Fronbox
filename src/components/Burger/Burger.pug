@@ -1,0 +1,14 @@
+mixin burger(id, params = {})
+  - const { className, style } = params;
+
+  button.click-expand.burger(
+    class= [
+      className
+    ],
+    type="button",
+    data-toggler= id
+    style= style
+  )
+    .burger__plank
+    .burger__plank
+    .burger__plank

@@ -1,0 +1,41 @@
+include ~@components/Wrap/Wrap
+
+mixin hero(params = {})
+  - 
+    const { createClassNames } = require("@utilities/pugParser.ts");
+    const { data = {}, className, fullscreen, top, color, style = {}, background } = params;
+
+    const classNames = createClassNames('hero', {
+      type: {
+        fullscreen,
+        top,
+      },
+      color
+    });
+
+    if (background) {
+      style['background-image'] = `url(${require(`@images/${background}`)})`;
+    }
+
+  .hero(
+    class = [
+      className,
+      classNames
+    ]
+    style = style
+  )
+    +wrap
+
+      .hero-header
+        - const { header = {} } = data;
+
+        if header.title
+          #{top ? 'h1' : 'h2'}.hero-header__title
+            = header.title
+
+        if header.subtitle
+          p.hero-header__subtitle
+            = header.subtitle
+
+      .hero-body
+        block

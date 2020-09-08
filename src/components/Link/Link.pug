@@ -1,0 +1,17 @@
+mixin link(params = {})
+  - 
+    const module = require("@components/Link/Link.pug.ts");
+    const { 
+      href, 
+      type, 
+      classNames, 
+      attr, 
+      tag,
+    } = module.parse(params);
+
+  #{tag}.link(
+    href= href,
+    type= type,
+    class= classNames
+  )&attributes(attr)
+    block

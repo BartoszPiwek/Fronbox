@@ -1,0 +1,10 @@
+mixin overlay(params = {})
+  - const { className, style, id, attr } = params;
+
+  .overlay(
+    class = [
+      className
+    ],
+    id = id,
+    style = style
+  )&attributes(attr)

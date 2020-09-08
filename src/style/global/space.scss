@@ -1,0 +1,25 @@
+@include responsive {
+	@at-root .#{&}space {
+		@include space(20px, 20px);
+
+		// Sizes
+		&--size {
+		}
+
+		&-x {
+			@include space-x(20px);
+
+			// Sizes
+			&--size {
+			}
+		}
+
+		&-y {
+			@include space-y(20px);
+
+			// Sizes
+			&--size {
+			}
+		}
+	}
+}

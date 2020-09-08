@@ -1,0 +1,13 @@
+[data-scroll-lock-filled-gap='true'] {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100%;
+		padding-right: inherit;
+		background: color('white');
+	}
+}

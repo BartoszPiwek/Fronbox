@@ -1,0 +1,18 @@
+mixin sticky(params = {})
+  - 
+    const { className, style, options = {}, data = {}} = params;
+    const { hasInit = true } = options;
+    const { id = '' } = data;
+
+  .sticky(
+    class= className,
+    style= style,
+    data-sticky= id,
+    data-on-init= `${hasInit}`,
+  )
+    .sticky__ghost(data-sticky-ghost= id)
+    .sticky__inner(
+      data-scroll-lock-fill-gap=''
+    )
+      block
+

@@ -1,0 +1,25 @@
+extends ~@templates/layout
+
+include ~@components/Header/Header
+include ~@components/Footer/Footer
+include ~@components/Wrap/Wrap
+include ~@components/Link/Link
+include ~@components/Button/Button
+include ~@components/Icon/Icon
+include ~@components/Image/Image
+
+block append header
+  +seo({
+    title: 'Hello World',
+    description: 'FrontBox Static Webpack version',
+    keywords: 'framework'
+  })
+
+block append body
+  +header
+
+  main#main
+    +wrap
+      | Foo
+
+  +footer

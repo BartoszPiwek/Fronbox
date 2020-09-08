@@ -1,0 +1,24 @@
+mixin image(params = {})
+  - 
+    const { file, options = {}, className } = params;
+    const { lazyload = true } = options;
+
+    const image = require(`@images/${file.value}`);
+
+  .image(
+    class=[
+      options.responsive && `image--responsive`
+    ],
+  )
+    .image__inner(
+    )
+      img.image__element(
+        class= [
+          className,
+          options.isBlock && `image__element--block`,
+          options.responsive && `image__element--responsive`
+        ],
+        src= require(`@images/${file.value}`),
+        alt= file.alt,
+        lazyload= lazyload && 'lazy'
+      )

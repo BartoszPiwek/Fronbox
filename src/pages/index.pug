@@ -1,0 +1,72 @@
+extends ~@templates/layout
+
+include ~@components/Header/Header
+include ~@components/Footer/Footer
+include ~@components/Wrap/Wrap
+include ~@components/Link/Link
+include ~@components/Button/Button
+include ~@components/Icon/Icon
+include ~@components/Image/Image
+include ~@components/Hero/Hero
+include ~@components/Loader/Loader
+
+block append header
+	+seo({
+		title: 'Hello World',
+		description: 'FrontBox Static Webpack version',
+		keywords: 'framework'
+	})
+
+block append body
+	+header
+
+	main#main
+		+hero({
+			data: { 
+				header: {
+					title: 'Hero title',
+					subtitle: 'Hero select subtitle'
+				}
+			},
+			fullscreen: true,
+			top: true,
+			color: 'secondary',
+		})
+			p
+				| Hero Body
+
+		+wrap
+			+button({attr: { 
+				'data-modal': 'example',
+				'data-modal-data': {
+					title: 'Foo',
+					content: "lorem ipsum dolor sit amet, consectetur adipiscing"
+				}
+			}})
+				| Open Modal
+
+			div(style="height: 100px")
+
+			+icon('foo.svg')
+			+icon('foo.svg', {tag: 'img'})
+			+image({
+				file: {
+					value: 'frontbox.png', 
+				}, 
+			})
+
+			.row.space
+				.col-6
+				.col-6
+
+			div(style="height: 2000px")
+				+button({data: {href: 'http://www.google.pl'}, className: ['foo', 'fee'], options: {tag: 'a'}})
+					| Button
+				+button({data: {href: 'http://www.google.pl'}, className: 'isDisabled', options: {tag: 'button'}})
+					| Button
+				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'a'}})
+					| Link
+				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'button'}})
+					| Link
+
+	+footer

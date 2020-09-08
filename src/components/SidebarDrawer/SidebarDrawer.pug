@@ -1,0 +1,33 @@
+include ~@components/Burger/Burger
+include ~@components/Overlay/Overlay
+
+mixin sidebarDrawer(params = {})
+	- const { options, className, style, data } = params;
+	- const { position = 'left' } = options;
+	- const { id } = data;
+
+	nav.sidebar-drawer(
+		class= [
+			`sidebar-drawer--position-${position}`
+		]
+		data-sidebar-drawer= id
+	)
+		+overlay({
+			className: 'sidebar-drawer__overlay',
+			attr: {
+				'data-sidebar-drawer-overlay': ''
+			}
+		})
+
+		.sidebar-drawer__content
+
+			.sidebar-drawer-header
+				.sidebar-drawer-header__title
+					| Menu
+				+burger('header', {className: 'sidebar-drawer-header__button'})
+
+			.sidebar-drawer-body
+				.sidebar-drawer-body__inner
+					+scrollable({shadow: true})
+						block
+

@@ -1,0 +1,23 @@
+include ~@components/SEO/SEO
+
+block variables
+
+<!DOCTYPE html>
+  html.isScriptsDisabled(lang='en' itemscope itemtype="http://schema.org/WebPage" dir="ltr" prefix="og: http://ogp.me/ns#")
+    head
+
+      //- Base Meta
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1")
+      meta(http-equiv="X-UA-Compatible" content="IE=Edge")
+      meta(name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no")
+
+      block header
+        script
+          | document.documentElement.classList.remove('isScriptsDisabled');
+          | document.documentElement.classList.add('isLoading');
+
+    body#body
+      block body
+
+    block footer

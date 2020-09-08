@@ -1,0 +1,18 @@
+.modal {
+	padding: 25px;
+
+	&__header {
+		margin-bottom: 20px;
+		font-size: 24px;
+	}
+
+	&__body {
+	}
+
+	// Sizes
+	&--size {
+		&-default {
+			max-width: 600px;
+		}
+	}
+}
