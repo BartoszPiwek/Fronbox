@@ -31,7 +31,7 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 |            |                                              |
 | ---------- | -------------------------------------------- |
 | Author     | Bartosz Piwek                                |
-| Version    | 0.1                                          |
+| Version    | 0.1.0                                        |
 | HTML       | [Pug](https://pugjs.org/)                    |
 | CSS        | [SCSS](https://sass-lang.com)                |
 | JavaScript | [TypeScript](https://www.typescriptlang.org) |

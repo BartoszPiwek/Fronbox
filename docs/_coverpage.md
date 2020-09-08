@@ -1,6 +1,6 @@
 ![logo](_media/icon.svg)
 
-# FrontBox <small>0.1</small>
+# FrontBox <small>0.1.0</small>
 
 > Static WWW builder tool.
 
