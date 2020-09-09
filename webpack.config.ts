@@ -13,10 +13,7 @@ import svg from "./builder/svg.webpack";
 // @ts-ignore
 module.exports = (env, args): webpack.Configuration => {
   return {
-    stats: {
-      warnings: false,
-      chunks: false
-    },
+    stats: 'errors-only',
     optimization: {
       splitChunks: { chunks: "all" }
     },
@@ -31,11 +28,12 @@ module.exports = (env, args): webpack.Configuration => {
         '@images': path.resolve(__dirname, 'src/static/images/'),
         '@utilities': path.resolve(__dirname, 'src/utilities/'),
         '@modals': path.resolve(__dirname, 'src/modals/'),
+        '@styles': path.resolve(__dirname, 'src/style/'),
       }
     },
     devtool: args.mode !== 'production' ? 'source-map' : false,
     entry: [
-      // './src/index.ts',
+      './src/index.ts',
       './src/scripts/app.ts',
       './src/style/global.scss',
       './src/style/utilities.scss',
@@ -71,7 +69,6 @@ module.exports = (env, args): webpack.Configuration => {
       new FriendlyErrorsPlugin({
         clearConsole: true,
       }),
-      new webpack.HotModuleReplacementPlugin(),
     ],
   };
 };

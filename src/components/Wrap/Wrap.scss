@@ -1,16 +1,15 @@
-.wrap {
+.element {
 	@extend %wrap-style;
+}
 
-	/* Sizes */
-	&--size {
-		&-default {
-			@include wrap(1024px, 15px);
-		}
+.size {
+	&--default {
+		@include wrap(1024px, 15px);
+	}
 
-		&-big {
-		}
+	&--big {
+	}
 
-		&-small {
-		}
+	&--small {
 	}
 }

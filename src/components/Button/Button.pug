@@ -1,20 +1,24 @@
 mixin button(params = {})
-  - 
-    const parser = require("@utilities/pugParseParams.ts").parse;
-    const { 
-      className, 
-      style
-    } = parser('button', params);
+	-
+		const styles = require("@components/Button/Button.scss.json");
+		const parser = require("@utilities/pugParseParams.ts").parse;
+		const { 
+			className, 
+			style
+		} = parser('button', params);
 
-  - 
-    const { options = {}, data = {} } = params;
-    const { color, type, tag = "button" } = options;
-    const { href, attr } = params;
+	-
+		const { options = {}, data = {} } = params;
+		const { color, type, tag = "button" } = options;
+		const { href, attr } = params;
 
-  #{tag}.btn(
-    class= className,
-    style= style,
-    href= tag === 'a' && href
-    type= tag === 'button' && 'button'
-  )&attributes(attr)
-    block
+	#{tag}(
+		class= [
+			classNames,
+			styles.btn
+		],
+		style = style,
+		href = tag === 'a' && href
+		type = tag === 'button' && 'button'
+	)&attributes(attr)
+		block

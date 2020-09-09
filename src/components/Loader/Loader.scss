@@ -1,67 +1,67 @@
-.loader {
+.element {
 	margin: 0 auto;
+}
 
-	&__inner {
-		display: inline-block;
-		position: relative;
+.content {
+	display: inline-block;
+	position: relative;
+	width: inherit;
+	height: inherit;
+
+	> * {
+		display: block;
+		position: absolute;
+		box-sizing: border-box;
 		width: inherit;
 		height: inherit;
+		animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+		border: 8px solid;
+		border-radius: 50%;
+		border-color: color('primary') transparent transparent;
 
-		> * {
-			display: block;
-			position: absolute;
-			box-sizing: border-box;
-			width: inherit;
-			height: inherit;
-			animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-			border: 8px solid;
-			border-radius: 50%;
-			border-color: color('primary') transparent transparent;
+		&:nth-child(1) {
+			animation-delay: -0.45s;
+		}
 
-			&:nth-child(1) {
-				animation-delay: -0.45s;
-			}
+		&:nth-child(2) {
+			animation-delay: -0.3s;
+		}
 
-			&:nth-child(2) {
-				animation-delay: -0.3s;
-			}
-
-			&:nth-child(3) {
-				animation-delay: -0.15s;
-			}
+		&:nth-child(3) {
+			animation-delay: -0.15s;
 		}
 	}
+}
 
-	// Sizes
-	&--size {
-		&-small {
-			width: 40px;
-			height: 40px;
-		}
-
-		&-default {
-			width: 65px;
-			height: 65px;
-		}
-
-		&-big {
-			width: 85px;
-			height: 85px;
-		}
+// Sizes
+.size {
+	&-small {
+		width: 40px;
+		height: 40px;
 	}
 
-	// Types
-	&--type {
-		&-centered {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
+	&-default {
+		width: 65px;
+		height: 65px;
+	}
 
-		&-fixed {
-			position: fixed;
-		}
+	&-big {
+		width: 85px;
+		height: 85px;
+	}
+}
+
+// Types
+.type {
+	&-centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&-fixed {
+		position: fixed;
 	}
 }
 

@@ -1,5 +1,5 @@
 import webpack from "webpack";
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 const moduleRule: webpack.RuleSetRule = {
   test: /\.(png|jpe?g|gif)$/i,

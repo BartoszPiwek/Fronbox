@@ -1,5 +1,7 @@
 mixin loader(params = {})
   -
+    const styles = require("@components/Loader/Loader.scss.json");
+
     const { createClassNames } = require("@utilities/pugParser");
     const { 
       className, 
@@ -19,15 +21,16 @@ mixin loader(params = {})
       }
     });
 
-  .loader(
+  div(
     class = [
+      styles.element,
+      styles[`size-${size}`],
       className,
-      classNames
     ],
     id = id,
     style = style
   )&attributes(args)
-    .loader__inner
+    div(class = styles.content)
       div
       div
       div

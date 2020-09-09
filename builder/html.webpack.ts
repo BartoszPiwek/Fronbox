@@ -14,7 +14,7 @@ const moduleRule: webpack.RuleSetRule = {
         data: {
           fs: require('fs'),
         },
-        prettier: true
+        pretty: true
       },
     }
   ],

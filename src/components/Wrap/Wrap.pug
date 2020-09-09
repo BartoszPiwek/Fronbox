@@ -1,3 +1,9 @@
 mixin wrap(size = 'default')
-  .wrap(class= `wrap--size-${size}`)
+  -
+    const styles = require("@components/Wrap/Wrap.scss.json");
+
+  div(class = [
+    styles.element,
+    styles[`size--${size}`],
+  ])
     block
