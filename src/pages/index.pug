@@ -6,7 +6,7 @@ include ~@components/Button/Button
 include ~@components/Header/Header
 include ~@components/Footer/Footer
 include ~@components/Wrap/Wrap
-include ~@components/Link/Link
+//- include ~@components/Link/Link
 include ~@components/Icon/Icon
 include ~@components/Image/Image
 include ~@components/Loader/Loader
@@ -20,11 +20,9 @@ block append header
 
 block append body
 
-	//- +header
+	+header
 
 	main#main
-
-		+loader
 
 		+hero({
 			data: { 
@@ -40,38 +38,38 @@ block append body
 			p
 				| Hero Body
 
-		+wrap
-			+button({attr: { 
-				'data-modal': 'example',
-				'data-modal-data': {
-					title: 'Foo',
-					content: "lorem ipsum dolor sit amet, consectetur adipiscing"
-				}
-			}})
-				| Open Modal
+		//- +wrap
+		//- 	+button({attr: { 
+		//- 		'data-modal': 'example',
+		//- 		'data-modal-data': {
+		//- 			title: 'Foo',
+		//- 			content: "lorem ipsum dolor sit amet, consectetur adipiscing"
+		//- 		}
+		//- 	}})
+		//- 		| Open Modal
 
-			div(style="height: 100px")
+			//- div(style="height: 100px")
 
-			+icon('foo.svg')
-			+icon('foo.svg', {tag: 'img'})
-			+image({
-				file: {
-					value: 'frontbox.png', 
-				}, 
-			})
+			//- +icon('foo.svg')
+			//- +icon('foo.svg', {tag: 'img'})
+			//- +image({
+			//- 	file: {
+			//- 		value: 'frontbox.png', 
+			//- 	}, 
+			//- })
 
-			.row.space
-				.col-6
-				.col-6
+			//- .row.space
+			//- 	.col-6
+			//- 	.col-6
 
-			div(style="height: 2000px")
-				+button({data: {href: 'http://www.google.pl'}, className: ['foo', 'fee'], options: {tag: 'a'}})
-					| Button
-				+button({data: {href: 'http://www.google.pl'}, className: 'isDisabled', options: {tag: 'button'}})
-					| Button
-				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'a'}})
-					| Link
-				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'button'}})
-					| Link
+			//- div(style="height: 2000px")
+			//- 	+button({data: {href: 'http://www.google.pl'}, className: ['foo', 'fee'], options: {tag: 'a'}})
+			//- 		| Button
+			//- 	+button({data: {href: 'http://www.google.pl'}, className: 'isDisabled', options: {tag: 'button'}})
+			//- 		| Button
+			//- +link({data: {href: 'http://www.google.pl'}, options: {tag: 'a'}})
+			//- 	| Link
+			//- +link({data: {href: 'http://www.google.pl'}, options: {tag: 'button'}})
+			//- 	| Link
 
 	+footer

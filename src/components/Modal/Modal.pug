@@ -1,36 +1,36 @@
-mixin modal(params = {})
-  -
-    const { createClassNames } = require("@utilities/pugParser");
+//- mixin modal(params = {})
+//-   -
+//-     const { createTagClassNames } = require("@utilities/pugComponents");
 
-    const { className, id, style, attr, size = 'default' } = params;
+//-     const { className, id, style, attr, size = 'default' } = params;
 
-    const classNames = createClassNames('modal', {
-      size
-    });
+//-     const classNames = createTagClassNames('modal', {
+//-       size
+//-     });
 
-    const content = {};
+//-     const content = {};
 
-  mixin header
-    - content.header = this.block;
+//-   mixin header
+//-     - content.header = this.block;
 
-  mixin body
-    - content.body = this.block;
+//-   mixin body
+//-     - content.body = this.block;
 
-  block
+//-   block
 
-  div.modal.modal--default(
-    class= [
-      className,
-      classNames
-    ],
-    style= style,
-    id = id
-  )&attributes(attr)
+//-   div.modal.modal--default(
+//-     class= [
+//-       className,
+//-       classNames
+//-     ],
+//-     style= style,
+//-     id = id
+//-   )&attributes(attr)
 
-    if content.header
-      .modal__header
-        - content.header()
+//-     if content.header
+//-       .modal__header
+//-         - content.header()
 
-    if content.body
-      .modal__body
-        - content.body()
+//-     if content.body
+//-       .modal__body
+//-         - content.body()

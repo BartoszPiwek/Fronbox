@@ -1,9 +1,21 @@
-mixin wrap(size = 'default')
+mixin wrap(size = 'default', params = {})
   -
-    const styles = require("@components/Wrap/Wrap.scss.json");
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Wrap');
+    const { className, style, id, attr } = params;
 
-  div(class = [
-    styles.element,
-    styles[`size--${size}`],
-  ])
+    const classNames = createTagClassNames('Wrap', {
+      size,
+    });
+
+  div(
+    id = id,
+    class = [
+      styles.element,
+      classNames,
+      className
+    ],
+    style = style
+  )&attributes(attr)
+
     block

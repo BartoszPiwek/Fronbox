@@ -1,19 +1,20 @@
 mixin loader(params = {})
   -
-    const styles = require("@components/Loader/Loader.scss.json");
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Loader');
 
-    const { createClassNames } = require("@utilities/pugParser");
     const { 
-      className, 
       id,
+      className, 
       style, 
       args, 
+
       size = 'default', 
       centered, 
       fixed
     } = params;
 
-    const classNames = createClassNames('loader', {
+    const classNames = createTagClassNames('Loader', {
       size,
       type: {
         centered,
@@ -22,12 +23,12 @@ mixin loader(params = {})
     });
 
   div(
+    id = id,
     class = [
       styles.element,
-      styles[`size-${size}`],
+      classNames,
       className,
     ],
-    id = id,
     style = style
   )&attributes(args)
     div(class = styles.content)

@@ -1,39 +1,34 @@
-.sticky {
+.element,
+.inner,
+.ghost {
 	background: inherit;
+}
 
-	&__inner,
-	&__ghost {
-		background: inherit;
-	}
-
-	&__inner {
-		z-index: index('sticky');
-
-		.isScriptsDisabled & {
-			position: sticky;
-			top: 0;
-			left: 0;
+.element {
+	&:not(.isSticky) {
+		.ghost {
+			height: 0 !important;
 		}
 	}
 
 	&.isSticky {
-		.sticky {
-			&__inner {
-				@extend %fix-fixed;
+		.inner {
+			@extend %fix-fixed;
 
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-			}
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
 		}
 	}
+}
 
-	&:not(.isSticky) {
-		.sticky {
-			&__ghost {
-				height: 0 !important;
-			}
-		}
+.inner {
+	z-index: index('sticky');
+
+	.isScriptsDisabled & {
+		position: sticky;
+		top: 0;
+		left: 0;
 	}
 }

@@ -2,30 +2,43 @@ include ~@components/Wrap/Wrap
 
 mixin hero(params = {})
   -
-    const styles = require("@components/Hero/Hero.scss.json");
-    const { createClassNames } = require("@utilities/pugParser.ts");
-    const { data = {}, className, fullscreen, top, color, style = {}, background } = params;
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Hero');
 
-  //-   const classNames = createClassNames('hero', {
-  //-     type: {
-  //-       fullscreen,
-  //-       top,
-  //-     },
-  //-     color
-  //-   });
+    const { 
+      attr,
+      className, 
+      style, 
+      id, 
 
-  //-   if (background) {
-  //-     style['background-image'] = `url(${require(`@images/${background}`)})`;
-  //-   }
+      data = {},
+      fullscreen,
+      top,
+      color,
+      background
+    } = params;
+
+    const classNames = createTagClassNames('Hero', {
+      type: {
+        fullscreen,
+        'fullscreen--top': top
+      },
+      color
+    });
+
+    if (background) {
+      style['background-image'] = `url(${require(`@images/${background}`)})`;
+    }
 
   div(
     class = [
       className,
-      styles.element,
       classNames,
+      styles.element,
     ]
     style = style
-  )
+  )&attributes(attr)
+
     +wrap
       div(class = [styles.header])
         - const { header = {} } = data;

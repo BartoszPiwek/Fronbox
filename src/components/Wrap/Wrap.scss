@@ -2,14 +2,9 @@
 	@extend %wrap-style;
 }
 
+// Sizes
 .size {
-	&--default {
+	&-default {
 		@include wrap(1024px, 15px);
-	}
-
-	&--big {
-	}
-
-	&--small {
 	}
 }

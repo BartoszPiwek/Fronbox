@@ -1,28 +1,28 @@
 mixin scrollable(params = {})
-	-
-		const { createClassNames } = require("@utilities/pugParser");
+  -
+    const { createTagClassNames } = require("@utilities/pugComponents");
 
-		const { 
-			id,
-			className,
-			style,
-			shadow,
-			color = 'white',
-		} = params;
+    const { 
+      id,
+      className,
+      style,
+      shadow,
+      color = 'white',
+    } = params;
 
-		const classNames = createClassNames('scrollable', {
-			type: {
-				shadow
-			},
-			color
-		});
+    const classNames = createTagClassNames('Scrollable', {
+      type: {
+        shadow
+      },
+      color
+    });
 
-	.scrollable(
-		class = [
-			className,
-			classNames
-		]
-	)
-		.scrollable__content
-			.scrollable__inner
-				block
+  .scrollable(
+    class = [
+      className,
+      classNames
+    ]
+  )
+    .scrollable__content
+      .scrollable__inner
+        block

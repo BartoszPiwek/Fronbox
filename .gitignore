@@ -1,6 +1,5 @@
 node_modules/
 .tscache
-.vscode
 *.log
 *.lock
 .idea
@@ -15,7 +14,7 @@ src/favicons/
 !src/favicons/.gitkeep
 yarn-error.log
 dist
-src/components/**/*.scss.json
+**/*.scss.json
 
 # Maps
 *.map.*

@@ -3,6 +3,7 @@ import webpack from "webpack";
 const moduleRule: webpack.RuleSetRule = {
   test: /\.ts?$/,
   exclude: /(node_modules|bower_components)/,
+  enforce: 'pre',
   use: [
     {
       loader: 'babel-loader',
@@ -12,7 +13,8 @@ const moduleRule: webpack.RuleSetRule = {
     },
     {
       loader: "ts-loader",
-    }
+    },
+    'import-glob',
   ]
 }
 

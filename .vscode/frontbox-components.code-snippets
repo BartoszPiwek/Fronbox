@@ -1,0 +1,42 @@
+{
+	"Include component": {
+		"prefix": "@component",
+		"body": "include ~@components/${1}/${1}",
+		"scope": "jade"
+	},
+	"Extend template": {
+		"prefix": "@template",
+		"body": "extends ~@templates/${1}/${1}",
+		"scope": "jade"
+	},
+	"Link": {
+		"prefix": "+link",
+		"body": [
+			"+link({",
+			"\t//-tag: 'a | button',",
+			"\t//-linkType: 'email | phone',",
+			"\t//-href: '',",
+			"",
+			"\t//-type: 'default',",
+			"\t//-size: 'default',",
+			"\t//-color: 'default',",
+			"\t//-className: '',",
+			"",
+			"\t//-attr: '{}',",
+			"})",
+			"\t| ${1:Link}"
+		],
+		"scope": "jade"
+	},
+	"Pug component template": {
+		"prefix": "pug-component-template",
+		"body": [
+			"mixin ${1:name}(params = {})",
+			"\t-",
+			"\t\tconst { createTagClassNames, loadStyle } = require('@utilities/pugComponents');",
+			"\t\tstyles = loadStyle('${2:Name}');",
+			"\t",
+			"\t\tconst { "
+		]
+	}
+}

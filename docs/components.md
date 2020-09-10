@@ -51,3 +51,36 @@ include ~@components/Burger/Burger
 	style="background: red;"
 ></button>
 ```
+
+### Pug Component Template
+
+```pug
+mixin componentName(params = {})
+  -
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('ComponentName');
+
+    const {
+      attr,
+      className,
+      style,
+      id,
+
+      data
+    } = params;
+
+    const classNames = createTagClassNames('ComponentName', {
+
+    });
+
+  div(
+    id = id,
+    class = [
+      className,
+      classNames,
+    ]
+    style = style
+  )&attributes(attr)
+
+		| Component 'ComponentName' working!
+```

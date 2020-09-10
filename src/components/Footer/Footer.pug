@@ -1,7 +1,25 @@
 include ~@components/Wrap/Wrap
 
 mixin footer(params = {})
-  footer.footer
+  -
+    const { loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Footer');
+
+    const {
+      className,
+      style,
+      id,
+      attr
+    } = params;
+
+  footer(
+    class = [
+      styles.element
+    ],
+    id = id,
+    style = style,
+  )&attributes(attr)
+
     +wrap 
       .row.space
         .col-12.md_col-4
