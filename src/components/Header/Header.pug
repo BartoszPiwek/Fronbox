@@ -5,19 +5,32 @@ include ~@components/Scrollable/Scrollable
 include ~@components/Burger/Burger
 
 mixin header(params = {})
-	header.header-wrapper
+	-
+		const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+		const styles = loadStyle('Header');
+
+		const { 
+			id,
+			className, 
+			style, 
+			attr,
+		} = params;
+
+		const classNames = createTagClassNames('Header', {
+			position
+		});
+
+	header(class = [styles.wrapper])
 		+sticky
 
-			.header
-				.header__content
+			div(class = [styles.header])
+				div(class = [styles.content])
 					+wrap
-						+burger('header')
+						+burger({data: { id: 'header'}})
 
 	+sidebarDrawer({
 		data: { id: 'header'},
-		options: { 
-			position: 'left'
-		}
+		position: 'left'
 	})
 		p
 			| Lorem

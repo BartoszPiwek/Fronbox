@@ -1,10 +1,22 @@
 mixin overlay(params = {})
-  - const { className, style, id, attr } = params;
+  -
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Overlay');
 
-  .overlay(
-    class = [
-      className
-    ],
+    const { 
+      id,
+      className, 
+      style, 
+      attr, 
+
+      data = {}, 
+    } = params;
+
+  div(
     id = id,
+    class = [
+      className,
+      styles.element
+    ],
     style = style
   )&attributes(attr)

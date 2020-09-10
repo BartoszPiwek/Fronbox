@@ -2,32 +2,49 @@ include ~@components/Burger/Burger
 include ~@components/Overlay/Overlay
 
 mixin sidebarDrawer(params = {})
-	- const { options, className, style, data } = params;
-	- const { position = 'left' } = options;
-	- const { id } = data;
+	-
+		const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+		const styles = loadStyle('SidebarDrawer');
 
-	nav.sidebar-drawer(
-		class= [
-			`sidebar-drawer--position-${position}`
+		const { 
+			id,
+			className, 
+			style, 
+			attr,
+
+			data = {},
+			position 
+		} = params;
+
+		const classNames = createTagClassNames('SidebarDrawer', {
+			position
+		});
+
+	nav(
+		class = [
+			className,
+			classNames,
+			styles.element
 		]
-		data-sidebar-drawer= id
+		data-sidebar-drawer= data.id
 	)
 		+overlay({
-			className: 'sidebar-drawer__overlay',
+			className: styles.overlay,
 			attr: {
 				'data-sidebar-drawer-overlay': ''
 			}
 		})
 
-		.sidebar-drawer__content
+		div(class = [styles.content])
 
-			.sidebar-drawer-header
-				.sidebar-drawer-header__title
+			div(class = [styles.header])
+				div(class = [styles.header__title])
 					| Menu
-				+burger('header', {className: 'sidebar-drawer-header__button'})
 
-			.sidebar-drawer-body
-				.sidebar-drawer-body__inner
+				+burger({data: { id: data.id }, className: styles.header__button})
+
+			div(class = [styles.body])
+				div(class = [styles.body__inner])
 					+scrollable({shadow: true})
 						block
 

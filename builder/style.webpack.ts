@@ -28,7 +28,6 @@ const moduleRule = (mode: string): webpack.RuleSetRule => {
               mode === 'production' ? cssnano() : null,
               postCSSModules({
                 scopeBehaviour: "local",
-                exportGlobals: true,
                 getJSON: function (filePath: string, json, outputFileName) {
                   if (!hasCssModules(filePath)) {
                     return;

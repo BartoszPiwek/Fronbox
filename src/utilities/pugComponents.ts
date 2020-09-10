@@ -1,11 +1,11 @@
 import path from 'path';
 
 export const hasCssModules = (value: string) => {
-  return new RegExp(`(components|modules)`).test(path.dirname(value));
+  return new RegExp(`(components|services)`).test(path.dirname(value));
 }
 
 export const isDynamicClass = (value: string) => {
-  return new RegExp(`^(is|has)[a-zA-Z]`).test(path.dirname(value));
+  return /^(is|has)[a-zA-Z]/m.test(value);
 }
 
 type TCreateTagClassNames = {

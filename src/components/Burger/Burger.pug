@@ -1,14 +1,29 @@
-mixin burger(id, params = {})
-  - const { className, style } = params;
+mixin burger(params = {})
+	-
+		const { loadStyle } = require("@utilities/pugComponents");
+		const styles = loadStyle('Burger');
 
-  button.click-expand.burger(
-    class= [
-      className
-    ],
-    type="button",
-    data-toggler= id
-    style= style
-  )
-    .burger__plank
-    .burger__plank
-    .burger__plank
+		const { 
+			id,
+			className, 
+			style, 
+			attr,
+
+			data = {
+				id: ''
+			}
+		} = params;
+
+	button.click-expand(
+		id = id,
+		class= [
+			className,
+			styles.element,
+		],
+		type="button",
+		data-toggler= data.id
+		style= style
+	)
+		div(class = [styles.plank])
+		div(class = [styles.plank])
+		div(class = [styles.plank])

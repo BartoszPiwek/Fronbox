@@ -33,10 +33,10 @@ module.exports = (env, args): webpack.Configuration => {
     },
     devtool: args.mode !== 'production' ? 'source-map' : false,
     entry: [
-      './src/index.ts',
       './src/scripts/app.ts',
       './src/style/global.scss',
       './src/style/utilities.scss',
+      './src/index.ts',
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -62,9 +62,9 @@ module.exports = (env, args): webpack.Configuration => {
           }
         ]
       }),
+      ...style.plugin,
       ...html.plugin,
       ...script.plugin,
-      ...style.plugin,
       ...file.plugin,
       new FriendlyErrorsPlugin({
         clearConsole: true,

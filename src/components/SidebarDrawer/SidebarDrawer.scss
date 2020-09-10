@@ -1,4 +1,4 @@
-.sidebar-drawer {
+.element {
 	position: relative;
 	z-index: index('menu');
 	overflow-y: auto;
@@ -12,93 +12,87 @@
 		}
 	}
 
-	&__content {
-		@include fix-fixed;
-
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		height: 100%;
-		padding: 20px;
-		transition: transform $time-transition, height $time-transition;
-		background-color: color('white');
-		box-shadow: 0 0 20px 5px transparentize(color('black'), 1);
-
-		@include media('md') {
-			width: 400px;
-		}
-	}
-
-	&__overlay {
-		transition: opacity $time-transition;
-		opacity: 0;
-	}
-
-	&-header {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 20px;
-
-		&__button {
-			display: block;
-			margin-left: auto;
-		}
-
-		&__title {
-			font-size: 20px;
-			font-weight: bold;
-		}
-	}
-
-	&-body {
-		position: relative;
-		flex: 1 1 auto;
-
-		&__inner {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	// Positions
-	&--position {
-		&-left {
-			.sidebar-drawer {
-				&__content {
-					top: 0;
-					left: 0;
-					transform: translateX(-100%);
-				}
-			}
-		}
-
-		&-right {
-			.sidebar-drawer {
-				&__content {
-					top: 0;
-					right: 0;
-					transform: translateX(100%);
-				}
-			}
-		}
-	}
-
 	// Behaviors
 	&.isActive {
 		pointer-events: all;
 
-		.sidebar-drawer {
-			&__content {
-				transform: translate(0, 0);
-				box-shadow: 0 0 20px 5px transparentize(color('black'), 0);
-			}
+		.content {
+			transform: translate(0, 0);
+			box-shadow: 0 0 20px 5px transparentize(color('black'), 0);
+		}
 
-			&__overlay {
-				opacity: 0.8;
-			}
+		.overlay {
+			opacity: 0.8;
+		}
+	}
+}
+
+.content {
+	@include fix-fixed;
+
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	transition: transform $time-transition, height $time-transition;
+	background-color: color('white');
+	box-shadow: 0 0 20px 5px transparentize(color('black'), 1);
+
+	@include media('md') {
+		width: 400px;
+	}
+}
+
+.overlay {
+	transition: opacity $time-transition;
+	opacity: 0;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+
+	&__button {
+		display: block;
+		margin-left: auto;
+	}
+
+	&__title {
+		font-size: 20px;
+		font-weight: bold;
+	}
+}
+
+.body {
+	position: relative;
+	flex: 1 1 auto;
+
+	&__inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// Positions
+.position {
+	&-left {
+		.content {
+			top: 0;
+			left: 0;
+			transform: translateX(-100%);
+		}
+	}
+
+	&-right {
+		.content {
+			top: 0;
+			right: 0;
+			transform: translateX(100%);
 		}
 	}
 }
