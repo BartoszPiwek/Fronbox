@@ -5,10 +5,11 @@ import { SidebarDrawer } from './../components/SidebarDrawer/SidebarDrawer';
 import { Sticky } from './../components/Sticky/Sticky';
 import { Toggler } from './bootstrap/toggler';
 import { initiator } from './bootstrap/initiator';
-import { Browser } from './bootstrap/browser';
+import { BrowserService } from './services/browserService';
 import { modalsInit } from './app/modals';
+import { scrollToDirectiveInit } from './directives/scrollToDirective';
 
-export const ScrollComponent = new Browser();
+export const browser = new BrowserService();
 
 window.addEventListener('load', () => {
 
@@ -28,7 +29,6 @@ window.addEventListener('load', () => {
     toggler.setActive(value);
   };
 
-
   initiator('[data-sticky]', (element) => {
     new Sticky({
       element,
@@ -36,11 +36,10 @@ window.addEventListener('load', () => {
   });
 
   modalsInit();
-
-  /* Inform stylesheet to remove style fallback for JavaScript elements */
-  document.documentElement.classList.remove("isLoading");
+  scrollToDirectiveInit();
 });
 
 window.onload = () => {
-
+  /* Inform stylesheet to remove style fallback for JavaScript elements */
+  document.documentElement.classList.remove("isLoading");
 }

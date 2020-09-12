@@ -5,13 +5,13 @@
 }
 
 .element {
-	&:not(.isSticky) {
+	&:not(.isActive) {
 		.ghost {
 			height: 0 !important;
 		}
 	}
 
-	&.isSticky {
+	&.isActive {
 		.inner {
 			@extend %fix-fixed;
 

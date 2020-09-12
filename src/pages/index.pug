@@ -6,7 +6,7 @@ include ~@components/Button/Button
 include ~@components/Header/Header
 include ~@components/Footer/Footer
 include ~@components/Wrap/Wrap
-//- include ~@components/Link/Link
+include ~@components/Link/Link
 include ~@components/Icon/Icon
 include ~@components/Image/Image
 include ~@components/Loader/Loader
@@ -48,28 +48,36 @@ block append body
 			}})
 				| Open Modal
 
-			//- div(style="height: 100px")
+			+button({attr: { 
+				'data-scroll-to': '#targetElementScrollTo',
+			}})
+				| Test 'scrollTo'
 
-			//- +icon('foo.svg')
-			//- +icon('foo.svg', {tag: 'img'})
-			//- +image({
-			//- 	file: {
-			//- 		value: 'frontbox.png', 
-			//- 	}, 
-			//- })
+			div(style="height: 100px")
 
-			//- .row.space
-			//- 	.col-6
-			//- 	.col-6
+			+icon('foo.svg')
+			+icon('foo.svg', {tag: 'img'})
+			+image({
+				file: {
+					src: 'frontbox.png', 
+				}, 
+			})
 
-			//- div(style="height: 2000px")
-			//- 	+button({data: {href: 'http://www.google.pl'}, className: ['foo', 'fee'], options: {tag: 'a'}})
-			//- 		| Button
-			//- 	+button({data: {href: 'http://www.google.pl'}, className: 'isDisabled', options: {tag: 'button'}})
-			//- 		| Button
-			//- +link({data: {href: 'http://www.google.pl'}, options: {tag: 'a'}})
-			//- 	| Link
-			//- +link({data: {href: 'http://www.google.pl'}, options: {tag: 'button'}})
-			//- 	| Link
+			div(style="height: 2000px")
+				+button({data: {href: 'http://www.google.pl'}, className: ['foo', 'fee'], options: {tag: 'a'}})
+					| Button
+				+button({data: {href: 'http://www.google.pl'}, className: 'isDisabled', options: {tag: 'button'}})
+					| Button
+				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'a'}})
+					| Link
+				+link({data: {href: 'http://www.google.pl'}, options: {tag: 'button'}})
+					| Link
+
+			div(style="height: 2000px")
+
+			#targetElementScrollTo
+				| Target Element Scroll To
+
+			div(style="height: 2000px")
 
 	+footer

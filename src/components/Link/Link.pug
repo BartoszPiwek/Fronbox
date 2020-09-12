@@ -1,17 +1,36 @@
 mixin link(params = {})
-  //- - 
-  //-   const module = require("@components/Link/Link.pug.ts");
-  //-   const { 
-  //-     href, 
-  //-     type, 
-  //-     classNames, 
-  //-     attr, 
-  //-     tag,
-  //-   } = module.parse(params);
+  -
+    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Link');
 
-  //- #{tag}.link(
-  //-   href= href,
-  //-   type= type,
-  //-   class= classNames
-  //- )&attributes(attr)
-  //-   block
+    const { 
+      id,
+      className, 
+      style, 
+      attr,
+
+      tag = 'a',
+      centered, 
+      fixed,
+      data = {
+        href: '#'
+      }
+    } = params;
+
+    const classNames = createTagClassNames('Link', {
+      size,
+      color,
+      type: {
+      },
+    });
+
+  #{tag}(
+    href = tag === 'a' && data.href,
+    type = tag === 'button' && 'button',
+    class = [
+      className,
+      classNames,
+      styles.element
+    ]
+  )&attributes(attr)
+    block

@@ -1,24 +1,24 @@
 mixin image(params = {})
-  - 
-    const { file, options = {}, className } = params;
-    const { lazyload = true } = options;
+  -
+    const { loadStyle } = require("@utilities/pugComponents");
+    const styles = loadStyle('Image');
 
-    const image = require(`@images/${file.value}`);
+    const { 
+      id,
+      className, 
+      style, 
+      attr,
 
-  .image(
-    class=[
-      options.responsive && `image--responsive`
+      file = {},
+      lazyload, 
+    } = params;
+
+  img(
+    class= [
+      className,
+      styles.element,
     ],
+    src = require(`@images/${file.src}`),
+    alt = file.alt,
+    lazyload = lazyload && 'lazy'
   )
-    .image__inner(
-    )
-      img.image__element(
-        class= [
-          className,
-          options.isBlock && `image__element--block`,
-          options.responsive && `image__element--responsive`
-        ],
-        src= require(`@images/${file.value}`),
-        alt= file.alt,
-        lazyload= lazyload && 'lazy'
-      )

@@ -1,6 +1,6 @@
+import { browser } from './../../scripts/app';
 import { Component } from "../../scripts/abstract/component";
 import { getElement } from "../../scripts/tools/DOM";
-import { scrollPosition } from "../../scripts/tools/scrollPosition";
 
 interface ISticky {
   /** Sticky attribute `data-sticky` value */
@@ -43,7 +43,7 @@ export class Sticky extends Component {
   }
 
   public onScroll() {
-    if (scrollPosition() > this.offsetTop) {
+    if (browser.scrollPosition > this.offsetTop) {
       this.setActive(true);
     } else {
       this.setActive(false);
@@ -56,9 +56,9 @@ export class Sticky extends Component {
     }
 
     if (value) {
-      this.element.classList.add(`isSticky`);
+      this.element.classList.add(`isActive`);
     } else {
-      this.element.classList.remove(`isSticky`);
+      this.element.classList.remove(`isActive`);
     }
 
     if (this.onChange) {

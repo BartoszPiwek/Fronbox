@@ -62,10 +62,10 @@ module.exports = (env, args): webpack.Configuration => {
           }
         ]
       }),
-      ...style.plugin,
       ...html.plugin,
       ...script.plugin,
       ...file.plugin,
+      ...style.plugin,
       new FriendlyErrorsPlugin({
         clearConsole: true,
       }),
