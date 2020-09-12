@@ -1,34 +1,34 @@
 mixin button(params = {})
-	-
-		const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
-		const styles = loadStyle('Button');
+  -
+    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Button');
 
-		const { 
-			id,
-			className, 
-			style, 
-			attr,
+    const { 
+      id,
+      className, 
+      style, 
+      attr,
 
-			size = 'default', 
-			color = 'primary',
-			tag = 'button',
-			data = {}
-		} = params;
+      size = 'default', 
+      color = 'primary',
+      tag = 'button',
+      data = {}
+    } = params;
 
-		const classNames = createTagClassNames('Button', {
-			color,
-			size
-		});
+    const classNames = createTagClassNames({
+      color,
+      size
+    });
 
-	#{tag}(
-		class = [
-			className,
-			classNames,
-			styles.element
-		],
-		style = style,
-		href = tag === 'a' && data.href,
-		type = tag === 'button' && 'button'
-	)&attributes(attr)
+  #{tag}(
+    class = [
+      className,
+      styles(classNames),
+      styles('element')
+    ],
+    style = style,
+    href = tag === 'a' && data.href,
+    type = tag === 'button' && 'button'
+  )&attributes(attr)
 
-		block
+    block

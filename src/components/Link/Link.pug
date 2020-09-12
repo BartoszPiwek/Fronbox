@@ -1,7 +1,7 @@
 mixin link(params = {})
   -
-    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
-    const styles = loadStyle('Link');
+    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Link');
 
     const { 
       id,
@@ -30,7 +30,7 @@ mixin link(params = {})
     class = [
       className,
       classNames,
-      styles.element
+      styles('element')
     ]
   )&attributes(attr)
     block

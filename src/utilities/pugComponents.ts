@@ -14,16 +14,14 @@ type TCreateTagClassNames = {
   }>
 }
 
-export const createTagClassNames = (componentName: string, data: TCreateTagClassNames): string => {
-  const styles = require(`@components/${componentName}/${componentName}.scss.json`);
-
+export const createTagClassNames = (data: TCreateTagClassNames): string | string[] => {
   return Object.entries(data).map(([type, typeData]) => {
     if (!typeData) {
       return;
     }
 
     if (typeof typeData === 'string') {
-      return styles[`${type}-${typeData}`];
+      return `${type}-${typeData}`;
     }
 
     return Object.entries(typeData).map(([option, value]) => {
@@ -32,14 +30,22 @@ export const createTagClassNames = (componentName: string, data: TCreateTagClass
       }
 
       if (typeof value === 'boolean' && value) {
-        return styles[`${type}-${option}`];
+        return `${type}-${option}`;
       }
 
-      return styles[`${type}-${value}`];
-    }).filter(element => element !== undefined).join(' ');
-  }).filter(element => element !== undefined).join(' ');
+      return `${type}-${value}`;
+    }).filter(element => element !== undefined).flat();
+  }).filter(element => element !== undefined).flat();
 }
 
-export const loadStyle = (value: string) => {
-  return require(`@components/${value}/${value}.scss.json`);
+export const createStyle = (componentName: string) => {
+  return (value: string[] | string): string => {
+    if (typeof value === 'string') {
+      value = value.split(', ');
+    }
+
+    return value.map(element => {
+      return `${componentName}_${element}`;
+    }).join(' ');
+  }
 }

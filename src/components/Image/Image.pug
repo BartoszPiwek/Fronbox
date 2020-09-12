@@ -1,7 +1,7 @@
 mixin image(params = {})
   -
-    const { loadStyle } = require("@utilities/pugComponents");
-    const styles = loadStyle('Image');
+    const { createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Image');
 
     const { 
       id,
@@ -16,7 +16,7 @@ mixin image(params = {})
   img(
     class= [
       className,
-      styles.element,
+      styles('element'),
     ],
     src = require(`@images/${file.src}`),
     alt = file.alt,

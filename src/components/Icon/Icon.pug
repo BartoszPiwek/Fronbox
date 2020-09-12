@@ -1,7 +1,7 @@
 mixin icon(file, params = {})
   -
-    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
-    const styles = loadStyle('Icon');
+    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Icon');
 
     const { 
       id,
@@ -17,7 +17,7 @@ mixin icon(file, params = {})
       -
         const svg = require(`@icons/${file}`);
         const styleString = style ? `style="${style}"` : '';
-        const output = svg.replace(`<svg`, `<svg class="${styles.element}" ${styleString}`);
+        const output = svg.replace(`<svg`, `<svg class="${styles('element')}" ${styleString}`);
 
       != output
 
@@ -25,7 +25,7 @@ mixin icon(file, params = {})
       img.icon(
         class= [
           className,
-          styles.element
+          styles('element')
         ],
         style= style,
         src=`static/icons/${file}`

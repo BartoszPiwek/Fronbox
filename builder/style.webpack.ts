@@ -28,20 +28,7 @@ const moduleRule = (mode: string): webpack.RuleSetRule => {
               mode === 'production' ? cssnano() : null,
               postCSSModules({
                 scopeBehaviour: "local",
-                getJSON: function (filePath: string, json, outputFileName) {
-                  if (!hasCssModules(filePath)) {
-                    return;
-                  }
-
-                  const cssName = path.basename(`${filePath}`)
-                  const jsonFileName = path.resolve(
-                    `${path.dirname(filePath)}/${
-                    cssName.split('.')[0]
-                    }.scss.json`
-                  )
-
-                  fs.writeFileSync(jsonFileName, JSON.stringify(json))
-                },
+                getJSON: () => { },
                 generateScopedName(name: string, filePath: string) {
                   if (!hasCssModules(filePath) || isDynamicClass(name)) {
                     return name;

@@ -2,8 +2,8 @@ include ~@components/Wrap/Wrap
 
 mixin hero(params = {})
   -
-    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
-    const styles = loadStyle('Hero');
+    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Hero');
 
     const { 
       attr,
@@ -18,7 +18,7 @@ mixin hero(params = {})
       background
     } = params;
 
-    const classNames = createTagClassNames('Hero', {
+    const classNames = createTagClassNames({
       type: {
         fullscreen,
         'fullscreen--top': top
@@ -33,24 +33,24 @@ mixin hero(params = {})
   div(
     class = [
       className,
-      classNames,
-      styles.element,
+      styles(classNames),
+      styles('element'),
     ]
     style = style
   )&attributes(attr)
 
     +wrap
-      div(class = [styles.header])
+      div(class = [styles('header')])
         - const { header = {} } = data;
 
         if header.title
-          #{top ? 'h1' : 'h2'}(class = [styles.title])
+          #{top ? 'h1' : 'h2'}(class = [styles('title')])
             = header.title
 
         if header.subtitle
-          p(class = [styles.subtitle])
+          p(class = [styles('subtitle')])
             = header.subtitle
 
-      div(class = [styles.body])
+      div(class = [styles('body')])
         block
 

@@ -1,38 +1,38 @@
 mixin sticky(params = {})
-	-
-		const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
-		const styles = loadStyle('Sticky');
+  -
+    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
+    const styles = createStyle('Sticky');
 
-		const { 
-			id,
-			className, 
-			style, 
-			attr,
+    const { 
+      id,
+      className, 
+      style, 
+      attr,
 
-			hasInit = true,
-			data = {
-				id: ''
-			}
-		} = params;
+      hasInit = true,
+      data = {
+        id: ''
+      }
+    } = params;
 
-	div(
-		id = id,
-		class= [
-			className,
-			styles.element
-		],
-		style= style,
-		data-sticky= data.id,
-		data-on-init= `${hasInit}`,
-	)&attributes(attr)
+  div(
+    id = id,
+    class= [
+      className,
+      styles('element')
+    ],
+    style= style,
+    data-sticky= data.id,
+    data-on-init= `${hasInit}`,
+  )&attributes(attr)
 
-		div(
-			class = [styles.ghost]
-			data-sticky-ghost= data.id
-		)
-		div(
-			class = [styles.inner]
-			data-scroll-lock-fill-gap=''
-		)
-			block
+    div(
+      class = [styles('ghost')]
+      data-sticky-ghost= data.id
+    )
+    div(
+      class = [styles('inner')]
+      data-scroll-lock-fill-gap=''
+    )
+      block
 
