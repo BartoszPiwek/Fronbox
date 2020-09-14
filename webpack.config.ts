@@ -11,11 +11,12 @@ import file from "./builder/file.webpack";
 import svg from "./builder/svg.webpack";
 
 // @ts-ignore
-module.exports = (env, args): webpack.Configuration => {
+module.exports = (env, args) => {
   return {
     stats: 'errors-only',
     optimization: {
-      splitChunks: { chunks: "all" }
+      splitChunks: { chunks: "all" },
+      namedModules: true
     },
     resolve: {
       unsafeCache: true,
@@ -31,7 +32,19 @@ module.exports = (env, args): webpack.Configuration => {
         '@styles': path.resolve(__dirname, 'src/style/'),
       }
     },
+    devServer: {
+      hot: true,
+      inline: true,
+      compress: true,
+      port: 8000,
+      disableHostCheck: true,
+      // watchContentBase: true
+    },
     devtool: args.mode !== 'production' ? 'source-map' : false,
+    watchOptions: {
+      poll: true,
+      ignored: '/node_modules/',
+    },
     entry: [
       './src/scripts/app.ts',
       './src/style/global.scss',
@@ -53,6 +66,7 @@ module.exports = (env, args): webpack.Configuration => {
       ],
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin({
         patterns: [

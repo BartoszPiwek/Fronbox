@@ -33,7 +33,7 @@
 		"body": [
 			"mixin ${1:name}(params = {})",
 			"\t-",
-			"\t\tconst { createTagClassNames, loadStyle } = require('@utilities/pugComponents');",
+			"\t\tconst { createTagClassNames, loadStyle } = require('@utilities/pug');",
 			"\t\tstyles = loadStyle('${2:Name}');",
 			"\t",
 			"\t\tconst { "

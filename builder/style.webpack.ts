@@ -4,9 +4,8 @@ import globImporter from 'node-sass-glob-importer';
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import postCSSModules from "postcss-modules";
-import fs from 'fs';
 import path from 'path';
-import { hasCssModules, isDynamicClass } from "../src/utilities/pugComponents";
+import { hasCssModules, isDynamicClass } from "../src/utilities/style";
 
 const moduleRule = (mode: string): webpack.RuleSetRule => {
   return {
@@ -14,7 +13,7 @@ const moduleRule = (mode: string): webpack.RuleSetRule => {
     enforce: 'pre',
     use: [
       'style-loader',
-      MiniCssExtractPlugin.loader,
+      // mode === 'production' ? MiniCssExtractPlugin.loader : null,
       {
         loader: 'css-loader',
         options: { importLoaders: 1 }

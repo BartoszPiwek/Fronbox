@@ -45,7 +45,7 @@ export class Toggler extends Component implements IToggler {
 
   protected onDestroy() {
     this.elements.forEach(element => {
-      element.addEventListener('click', this.clickEvent);
+      element.removeEventListener('click', this.clickEvent);
     })
   }
 

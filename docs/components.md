@@ -57,7 +57,7 @@ include ~@components/Burger/Burger
 ```pug
 mixin componentName(params = {})
   -
-    const { createTagClassNames, loadStyle } = require("@utilities/pugComponents");
+    const { createTagClassNames, loadStyle } = require("@utilities/pug");
     const styles = loadStyle('ComponentName');
 
     const {

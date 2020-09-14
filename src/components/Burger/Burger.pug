@@ -1,6 +1,6 @@
 mixin burger(params = {})
 	-
-		const { createStyle } = require("@utilities/pugComponents");
+		const { createStyle } = require("@utilities/pug");
 		const styles = createStyle('Burger');
 
 		const { 
@@ -16,11 +16,11 @@ mixin burger(params = {})
 
 	button.click-expand(
 		id = id,
-		class= [
+		class = [
 			className,
 			styles('element'),
 		],
-		type="button",
+		type = "button",
 		data-toggler = data.id
 		style = style
 	)

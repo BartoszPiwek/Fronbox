@@ -1,30 +1,30 @@
 include ~@components/Wrap/Wrap
 
 mixin footer(params = {})
-  -
-    const { createStyle } = require("@utilities/pugComponents");
-    const styles = createStyle('Footer');
+	-
+		const { createStyle } = require("@utilities/pug");
+		const styles = createStyle('Footer');
 
-    const {
-      className,
-      style,
-      id,
-      attr
-    } = params;
+		const {
+			className,
+			style,
+			id,
+			attr
+		} = params;
 
-  footer(
-    class = [
-      styles('element')
-    ],
-    id = id,
-    style = style,
-  )&attributes(attr)
+	footer(
+		class = [
+			styles('element')
+		],
+		id = id,
+		style = style,
+	)&attributes(attr)
 
-    +wrap 
-      .row.space
-        .col-12.md_col-4
-          | Footer
-        .col-12.md_col-4
-          | Footer
-        .col-12.md_col-4
-          | Footer
+		+wrap 
+			.row.space
+				.col-12.md_col-4
+					| Footer
+				.col-12.md_col-4
+					| Footer
+				.col-12.md_col-4
+					| Footer

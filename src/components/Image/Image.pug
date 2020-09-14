@@ -1,24 +1,24 @@
 mixin image(params = {})
-  -
-    const { createStyle } = require("@utilities/pugComponents");
-    const styles = createStyle('Image');
+	-
+		const { createStyle } = require("@utilities/pug");
+		const styles = createStyle('Image');
 
-    const { 
-      id,
-      className, 
-      style, 
-      attr,
+		const { 
+			id,
+			className, 
+			style, 
+			attr,
 
-      file = {},
-      lazyload, 
-    } = params;
+			file = {},
+			lazyload, 
+		} = params;
 
-  img(
-    class= [
-      className,
-      styles('element'),
-    ],
-    src = require(`@images/${file.src}`),
-    alt = file.alt,
-    lazyload = lazyload && 'lazy'
-  )
+	img(
+		class= [
+			className,
+			styles('element'),
+		],
+		src = require(`@images/${file.src}`),
+		alt = file.alt,
+		lazyload = lazyload && 'lazy'
+	)

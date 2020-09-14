@@ -1,27 +1,27 @@
 mixin wrap(size = 'default', params = {})
-  -
-    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
-    const styles = createStyle('Wrap');
+	-
+		const { createTagClassNames, createStyle } = require("@utilities/pug");
+		const styles = createStyle('Wrap');
 
-    const { 
-      id,
-      className, 
-      style,
-      attr
-    } = params;
+		const { 
+			id,
+			className, 
+			style,
+			attr
+		} = params;
 
-    const classNames = createTagClassNames({
-      size,
-    });
+		const classNames = createTagClassNames({
+			size,
+		});
 
-  div(
-    id = id,
-    class = [
-      styles('element'),
-      styles(classNames),
-      className
-    ],
-    style = style
-  )&attributes(attr)
+	div(
+		id = id,
+		class = [
+			styles('element'),
+			styles(classNames),
+			className
+		],
+		style = style
+	)&attributes(attr)
 
-    block
+		block

@@ -1,4 +1,4 @@
-// import { createArrayString, prefixClassNames, attributeParses } from "../../utilities/pugComponents";
+// import { createArrayString, prefixClassNames, attributeParses } from "../../utilities/pug";
 
 // interface ILinkPugInput {
 //   type?: string | string[];

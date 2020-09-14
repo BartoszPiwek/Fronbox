@@ -1,56 +1,56 @@
 include ~@components/Wrap/Wrap
 
 mixin hero(params = {})
-  -
-    const { createTagClassNames, createStyle } = require("@utilities/pugComponents");
-    const styles = createStyle('Hero');
+	-
+		const { createTagClassNames, createStyle } = require("@utilities/pug");
+		const styles = createStyle('Hero');
 
-    const { 
-      attr,
-      className, 
-      style, 
-      id, 
+		const { 
+			attr,
+			className, 
+			style, 
+			id, 
 
-      data = {},
-      fullscreen,
-      top,
-      color,
-      background
-    } = params;
+			data = {},
+			fullscreen,
+			top,
+			color,
+			background
+		} = params;
 
-    const classNames = createTagClassNames({
-      type: {
-        fullscreen,
-        'fullscreen--top': top
-      },
-      color
-    });
+		const classNames = createTagClassNames({
+			type: {
+				fullscreen,
+				'fullscreen--top': top
+			},
+			color
+		});
 
-    if (background) {
-      style['background-image'] = `url(${require(`@images/${background}`)})`;
-    }
+		if (background) {
+			style['background-image'] = `url(${require(`@images/${background}`)})`;
+		}
 
-  div(
-    class = [
-      className,
-      styles(classNames),
-      styles('element'),
-    ]
-    style = style
-  )&attributes(attr)
+	div(
+		class = [
+			className,
+			styles(classNames),
+			styles('element'),
+		]
+		style = style
+	)&attributes(attr)
 
-    +wrap
-      div(class = [styles('header')])
-        - const { header = {} } = data;
+		+wrap
+			div(class = [styles('header')])
+				- const { header = {} } = data;
 
-        if header.title
-          #{top ? 'h1' : 'h2'}(class = [styles('title')])
-            = header.title
+				if header.title
+					#{top ? 'h1' : 'h2'}(class = [styles('title')])
+						= header.title
 
-        if header.subtitle
-          p(class = [styles('subtitle')])
-            = header.subtitle
+				if header.subtitle
+					p(class = [styles('subtitle')])
+						= header.subtitle
 
-      div(class = [styles('body')])
-        block
+			div(class = [styles('body')])
+				block
 
