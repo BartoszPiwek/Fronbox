@@ -3,6 +3,7 @@ import { BurgerComponent } from './../components/Burger/Burger.component';
 import { getElement } from './tools/DOM';
 import 'regenerator-runtime/runtime'
 import { BrowserService } from './services/browser/browser.service';
+import { HeaderComponent } from '../components/Header/Header.component';
 
 export const browserService = new BrowserService();
 export const imagesService = new ImagesService();
@@ -14,6 +15,9 @@ window.addEventListener('load', () => {
 			console.log(`burger ${value}`);
 		}
 	});
+
+	const headerEl = getElement('.header');
+	new HeaderComponent({ element: headerEl })
 }, { once: true });
 
 window.onload = () => {

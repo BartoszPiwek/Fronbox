@@ -4,6 +4,7 @@ import commonConfig from './webpack.common';
 import { scssPluginsProd, scssRulesProd } from './builder/scss.webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { tsRulesDev } from './builder/ts.webpack';
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 
 module.exports = merge(commonConfig, {
 	// @ts-ignore
@@ -15,7 +16,28 @@ module.exports = merge(commonConfig, {
 	plugins: [
 		new CleanWebpackPlugin(),
 		...htmlTsxPlugins,
-		...scssPluginsProd
+		...scssPluginsProd,
+		new ImageMinimizerPlugin({
+			minimizerOptions: {
+				// Lossless optimization with custom option
+				// Feel free to experiment with options for better result for you
+				plugins: [
+					['gifsicle', { interlaced: true }],
+					['jpegtran', { progressive: true }],
+					['optipng', { optimizationLevel: 5 }],
+					[
+						'svgo',
+						{
+							plugins: [
+								{
+									removeViewBox: false,
+								},
+							],
+						},
+					],
+				],
+			},
+		}),
 	],
 	module: {
 		rules: [

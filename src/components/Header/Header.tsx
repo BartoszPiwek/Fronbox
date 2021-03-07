@@ -6,5 +6,5 @@ interface IHeader {
 }
 
 export const Header = (params: IHeader) => {
-	return <header className={cn('header')}></header>
+	return <header className={cn('header', 'sticky')}></header>
 }

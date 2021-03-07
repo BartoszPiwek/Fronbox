@@ -11,20 +11,8 @@
 		display: inline-block !important;
 	}
 
-	@at-root .#{&}table {
-		display: table !important;
-	}
-
 	@at-root .#{&}flex {
 		display: flex !important;
-	}
-
-	@at-root .#{&}table-cell {
-		display: table-cell !important;
-	}
-
-	@at-root .#{&}table-row {
-		display: table-row !important;
 	}
 
 	@at-root .#{&}no-before:before {
