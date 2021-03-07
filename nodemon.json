@@ -1,6 +1,7 @@
 {
   "watch": [
-    "webpack.config.ts",
-    "builder/"
+    "webpack.common.ts",
+    "webpack.dev.ts",
+    "./builder/*.webpack.ts"
   ]
 }

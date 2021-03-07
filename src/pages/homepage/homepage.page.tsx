@@ -19,12 +19,12 @@ export const Page = () => {
 		>
 			{/* <Header /> */}
 			<Loader></Loader>
-			<ImageElement
+			{/* <ImageElement
 				src={require('@images/frontbox.png')}
 				alt="Aaa"
 			></ImageElement>
 
-			<Icon file="close" width={20} height={20}></Icon>
+			<Icon file="close" width={20} height={20}></Icon> */}
 
 			<Wrap>
 				<Burger />
