@@ -31,8 +31,8 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 |            |                                              |
 | ---------- | -------------------------------------------- |
 | Author     | Bartosz Piwek                                |
-| Version    | 0.1.0                                        |
-| HTML       | [Pug](https://pugjs.org/)                    |
+| Version    | 1.0.0                                        |
+| HTML       | [React](https://pl.reactjs.org/)             |
 | CSS        | [SCSS](https://sass-lang.com)                |
 | JavaScript | [TypeScript](https://www.typescriptlang.org) |
 
@@ -75,7 +75,7 @@ Static WWW builder tool. Connect prepared components to create hermetic website.
 ├─── dist                             | Generated website
 ├─── dosc                             | Documentation
 └─── src/
-    ├─── components                   | Components {ts, pug, scss}
+    ├─── components                   | Components {ts, tsx, scss}
     ├─── modals                       | Modals content {ts, pug}
     ├─── pages                        | Pages {pug}
     ├─── scripts/

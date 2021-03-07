@@ -1,52 +1,29 @@
-$counter: 100;
-
 @include responsive {
-	@at-root .#{&}m {
-		&t {
-			@include generate-tool-count('margin-top', $counter);
-
-			&-0 {
-				margin-top: 0 !important;
-			}
+	@at-root .#{&}no-margin {
+		&-top {
+			margin-top: 0 !important;
 		}
 
-		&b {
-			@include generate-tool-count('margin-bottom', $counter);
-
-			&-0 {
-				margin-bottom: 0 !important;
-			}
+		&-bottom {
+			margin-bottom: 0 !important;
 		}
 
-		&l {
-			@include generate-tool-count('margin-left', $counter);
-
-			&-0 {
-				margin-left: 0 !important;
-			}
+		&-left {
+			margin-left: 0 !important;
 		}
 
-		&r {
-			@include generate-tool-count('margin-right', $counter);
-
-			&-0 {
-				margin-right: 0 !important;
-			}
+		&-right {
+			margin-right: 0 !important;
 		}
 
-		&x-0 {
+		&-x {
 			margin-right: 0 !important;
 			margin-left: 0 !important;
 		}
 
-		&y-0 {
+		&-y {
 			margin-top: 0 !important;
 			margin-bottom: 0 !important;
-		}
-
-		&-center {
-			margin-right: auto;
-			margin-left: auto;
 		}
 	}
 }

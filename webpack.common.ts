@@ -1,7 +1,6 @@
+import { imagesRules } from './builder/images.webpack';
 import * as path from 'path';
-import { faviconPlugins } from './builder/favicon.webpack';
-import { graphicsRules } from './builder/graphics.webpack';
-import { svgRules } from './builder/svg.webpack';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
 export default {
 	resolve: {
@@ -35,11 +34,21 @@ export default {
 	},
 	module: {
 		rules: [
-			...graphicsRules,
-			...svgRules
+			...imagesRules,
+			{
+				test: /\.(svg)$/i,
+				loader: 'svg-inline-loader'
+			}
 		]
 	},
 	plugins: [
-		...faviconPlugins,
+		new FaviconsWebpackPlugin({
+			logo: './src/static/favicon.png',
+			outputPath: 'static/favicons',
+			cache: true,
+			inject: true,
+			publicPath: 'static/favicons',
+			prefix: '',
+		})
 	]
 };

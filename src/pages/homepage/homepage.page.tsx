@@ -2,32 +2,27 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { Button } from '../../components/Button/Button'
 import { Footer } from '../../sections/Footer/Footer'
-import { Icon } from '../../components/Icon/Icon'
-import { ImageElement } from '../../components/ImageElement/ImageElement'
 import { Loader } from '../../components/Loader/Loader'
 import { Wrap } from '../../components/Wrap/Wrap'
-import { Layout } from '../../templates/Layout/Layout'
 import { Burger } from '../../components/Burger/Burger'
 import { Header } from '../../components/Header/Header'
+import { Icon } from '../../components/Icon/Icon'
+import { ImageElement } from '../../services/image/components/ImageElement/ImageElement'
+import { Layout } from '../../layout/Layout'
 
 export const Page = () => {
 	return (
-		<Layout
-			seo={{
-				title: 'Hello World',
-				description: 'Template page',
-			}}
-		>
+		<Layout title="Hello World" description="Template page">
 			<Header />
 			<Loader></Loader>
 			<ImageElement
-				src="frontbox.png"
-				alt="Aaa"
-				width={20}
+				src={require(`@images/frontbox.png`)}
+				alt="Frontbox Image"
+				width={100}
 				height={20}
 			/>
 
-			<Icon file="close" width={20} height={20}></Icon> 
+			<Icon file="close" width={20} height={20}></Icon>
 
 			<Wrap>
 				<Burger />
@@ -48,4 +43,4 @@ export const Page = () => {
 	)
 }
 
-export default ReactDOMServer.renderToStaticMarkup(Page())
+export default ReactDOMServer.renderToStaticMarkup(<Page />)
