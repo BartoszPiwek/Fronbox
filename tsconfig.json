@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
+		"jsx": "react",
 		"outDir": "./dist/",
 		"sourceMap": true,
 		"noImplicitAny": false,
 		"module": "commonjs",
 		"target": "esnext",
 		"esModuleInterop": true,
-		"declaration": true
+		"declaration": false
 	},
 	"exclude": ["node_modules"]
 }

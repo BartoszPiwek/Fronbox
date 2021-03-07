@@ -1,59 +1,63 @@
-.element {
+.burger {
 	display: inline-block;
 	position: relative;
-	width: 28px;
-	height: 22px;
-	transition: color $time-transition;
-	color: color('secondary');
+	width: 30px;
+	height: 24px;
 
 	&:hover,
 	&:active {
-		color: color('third');
+		color: color('primary');
 	}
 
 	&.isActive {
-		> .plank {
-			margin-top: calc(50% - 5px);
-			transition: margin-top $time-transition,
-				transform $time-transition / 2 $time-transition / 2,
-				opacity $time-transition, background-color $time-transition;
+		span {
+			transform: translate3d(0, 10px, 0) rotate(45deg);
 
-			&:first-child {
-				transform: rotate(45deg);
-			}
-
-			&:last-child {
-				transform: rotate(-45deg);
-			}
-
-			&:nth-child(2) {
+			&:before {
+				transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
 				opacity: 0;
+			}
+
+			&:after {
+				transform: translate3d(0, -20px, 0) rotate(-90deg);
 			}
 		}
 	}
-}
 
-.plank {
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 4px;
-	transition: margin-top $time-transition / 2 $time-transition / 2,
-		transform $time-transition, opacity $time-transition;
-	border-radius: 4px;
-	background-color: currentColor;
+	span {
+		display: block;
+		top: 0;
 
-	&:first-child {
-		margin-top: 0;
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+		}
+
+		&:before {
+			top: 10px;
+			transition-property: transform, opacity;
+			transition-duration: 0.15s;
+			transition-timing-function: ease;
+		}
+
+		&:after {
+			top: 20px;
+		}
 	}
 
-	&:nth-child(2) {
-		margin-top: calc(50% - 5px);
-	}
-
-	&:last-child {
-		margin-top: calc(100% - 10px);
+	span {
+		&,
+		&:before,
+		&:after {
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			transition-property: transform;
+			transition-duration: 0.15s;
+			transition-timing-function: ease;
+			border-radius: 4px;
+			background-color: color('black');
+		}
 	}
 }

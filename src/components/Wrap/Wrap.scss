@@ -1,10 +1,10 @@
-.element {
+.wrap {
 	@extend %wrap-style;
-}
 
-// Sizes
-.size {
-	&-default {
-		@include wrap(1024px, 15px);
+	// Sizes
+	&--size {
+		&-default {
+			@include wrap(1024px, 15px);
+		}
 	}
 }

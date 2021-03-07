@@ -1,10 +1,4 @@
-import './components/**/*.scss';
-import './services/**/*.scss';
+import './styles.scss';
 
-// @ts-ignore
-if (module.hot) {
-  // @ts-ignore
-  console.log(module.hot);
-  // @ts-ignore
-  module.hot.accept()
-}
+import './scripts/app';
+import './scripts/polyfill';

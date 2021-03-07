@@ -1,19 +1,19 @@
-.element {
+.link {
 	text-align: left;
-}
 
-/* Sizes */
-.size {
-	&-default {
+	/* Sizes */
+	&--size {
+		&-default {
+		}
 	}
-}
 
-/* Types */
-.type {
-}
+	/* Types */
+	&--type {
+	}
 
-/* Colors */
-.color {
-	&-default {
+	/* Colors */
+	&--color {
+		&-primary {
+		}
 	}
 }

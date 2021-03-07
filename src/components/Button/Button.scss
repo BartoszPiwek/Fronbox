@@ -1,4 +1,4 @@
-.element {
+.button {
 	display: inline-block;
 	position: relative;
 	box-sizing: border-box;
@@ -38,24 +38,24 @@
 			pointer-events: none;
 		}
 	}
-}
 
-// Colors
-.color {
-	&-primary {
-		background: color('primary');
-		color: color('white');
+	// Colors
+	&--color {
+		&-primary {
+			background: color('primary');
+			color: color('white');
 
-		@include hover {
-			background: darken(color('primary'), 5%);
+			@include hover {
+				background: darken(color('primary'), 5%);
+			}
 		}
 	}
-}
 
-// Sizes
-.size {
-	&-default {
-		min-width: 160px;
-		padding: 12px 25px;
+	// Sizes
+	&--size {
+		&-default {
+			min-width: 160px;
+			padding: 12px 25px;
+		}
 	}
 }

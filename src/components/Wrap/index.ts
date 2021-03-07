@@ -1,1 +1,0 @@
-import './Wrap.scss'
