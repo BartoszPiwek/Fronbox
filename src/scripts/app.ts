@@ -1,14 +1,18 @@
 import { BurgerComponent } from './../components/Burger/Burger.component';
 import { getElement } from './tools/DOM';
 import 'regenerator-runtime/runtime'
+import { BrowserService } from './services/browser/browser.service';
 
-import { BrowserService } from './services/browserService';
-
-export const browser = new BrowserService();
+export const browserService = new BrowserService();
 
 window.addEventListener('load', () => {
 	const burger = getElement('.burger');
-	new BurgerComponent({ element: burger });
+	new BurgerComponent({ element: burger, onClick: (value) => {
+		console.log(`burger ${value}`);
+		
+	} });
+
+	import('./foo').then(module => module.default())
 }, { once: true });
 
 window.onload = () => {

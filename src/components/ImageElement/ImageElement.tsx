@@ -4,28 +4,36 @@ import cn from 'classnames'
 export interface IImageElement {
 	src: string
 	alt: string
+	width: number;
+	height: number
 
 	isLazyload?: boolean
 	isBackground?: boolean
 	hasRetina?: boolean
 }
 
-export const ImageElement = (params: IImageElement) => {
-	const { src, alt, isLazyload, isBackground, hasRetina } = params
+export class ImageElement extends React.Component<IImageElement> {
+	public src: string
+	alt: string
+	width: number;
+	height: number;
+	image: string;
 
-	// const { width, height } = imageSize(src)
+	constructor(props: IImageElement) {
+		super(props);
+	}
 
-	return (
-		<div className={cn('image')}>
-			<div
-				style={
-					{
-						// paddingBottom: `${(height / width) * 100}%`,
-					}
-				}
-			>
-				<img src={src} alt={alt} />
-			</div>
-		</div>
-	)
+	async componentDidMount() {
+		this.image = await import(`@images/${this.src}?format=webp&width=${this.width}&height=${this.height}`);
+	}
+
+	render() {
+		return (
+			<div className={cn('image')}>
+	 			<div style={{paddingBottom: `${(this.height / this.width) * 100}%`}}>
+	 				<img src={this.image} alt={this.alt} />
+	 			</div>
+	 		</div>
+		)
+	}
 }

@@ -6,6 +6,7 @@ import FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
 import { tsRulesDev } from './builder/ts.webpack';
 import webpack from 'webpack';
 import path from 'path';
+import { faviconPlugins } from './builder/favicon.webpack';
 
 module.exports = merge(commonConfig, {
 	// @ts-ignore
@@ -16,11 +17,12 @@ module.exports = merge(commonConfig, {
 		hot: true,
 		port: 8080,
 		disableHostCheck: true,
-		contentBase: "src/**/*.tsx",
+		contentBase: "src/**/*.(tsx|ts)",
 		watchContentBase: true,
 	},
 	plugins: [
 		...htmlTsxPlugins,
+		...faviconPlugins,
 		new FriendlyErrorsPlugin({
 			clearConsole: true,
 		}),

@@ -8,6 +8,7 @@ import { Loader } from '../../components/Loader/Loader'
 import { Wrap } from '../../components/Wrap/Wrap'
 import { Layout } from '../../templates/Layout/Layout'
 import { Burger } from '../../components/Burger/Burger'
+import { Header } from '../../components/Header/Header'
 
 export const Page = () => {
 	return (
@@ -17,14 +18,16 @@ export const Page = () => {
 				description: 'Template page',
 			}}
 		>
-			{/* <Header /> */}
+			<Header />
 			<Loader></Loader>
-			{/* <ImageElement
-				src={require('@images/frontbox.png')}
+			<ImageElement
+				src="frontbox.png"
 				alt="Aaa"
-			></ImageElement>
+				width={20}
+				height={20}
+			/>
 
-			<Icon file="close" width={20} height={20}></Icon> */}
+			<Icon file="close" width={20} height={20}></Icon> 
 
 			<Wrap>
 				<Burger />

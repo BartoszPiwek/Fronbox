@@ -42,6 +42,7 @@
 		"css-loader": "^5.1.1",
 		"cssnano": "^4.1.10",
 		"docsify-cli": "^4.4.2",
+		"favicons": "^6.2.1",
 		"favicons-webpack-plugin": "^5.0.2",
 		"file-loader": "^6.2.0",
 		"friendly-errors-webpack-plugin": "^1.7.0",
@@ -51,6 +52,7 @@
 		"html-webpack-plugin": "^5.2.0",
 		"html-webpack-pug-plugin": "^2.0.1",
 		"html-webpack-tags-plugin": "^3.0.0",
+		"image-size": "^0.9.4",
 		"import-glob": "^1.5.0",
 		"import-glob-loader": "^1.1.0",
 		"import-local": "^3.0.2",
@@ -89,6 +91,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^17.0.3",
-		"html-webpack-hot-plugin": "^1.2.2"
+		"html-webpack-hot-plugin": "^1.2.2",
+		"webpack-image-resize-loader": "^4.0.0"
 	}
 }

@@ -1,6 +1,6 @@
 import webpack from "webpack";
-import HTMLWebpackPlugin from "html-webpack-plugin";
 import HtmlWebpackInlineSVGPlugin from 'html-webpack-inline-svg-plugin';
+import { pages } from "../src/pages";
 
 export const htmlTsxRulesDev: webpack.RuleSetRule = {
 	test: /\.tsx$/,
@@ -15,12 +15,6 @@ export const htmlTsxRulesDev: webpack.RuleSetRule = {
 }
 
 export const htmlTsxPlugins = [
-	new HTMLWebpackPlugin({
-		filename: 'index.html',
-		template: './src/pages/homepage/homepage.page.tsx',
-		inject: true,
-		hash: true,
-		cache: true
-	}),
+	...pages,
 	new HtmlWebpackInlineSVGPlugin()
 ]

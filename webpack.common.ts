@@ -1,4 +1,7 @@
 import * as path from 'path';
+import { faviconPlugins } from './builder/favicon.webpack';
+import { graphicsRules } from './builder/graphics.webpack';
+import { svgRules } from './builder/svg.webpack';
 
 export default {
 	resolve: {
@@ -27,6 +30,16 @@ export default {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[contenthash].js',
+		chunkFilename: '[name].[chunkhash].bundle.js',
 		publicPath: '',
 	},
+	module: {
+		rules: [
+			...graphicsRules,
+			...svgRules
+		]
+	},
+	plugins: [
+		...faviconPlugins,
+	]
 };
