@@ -1,5 +1,4 @@
-import { IComponentConfig } from '../../scripts/abstract/component';
-import { Component } from "../../scripts/abstract/component";
+import { Component, IComponentConfig } from '../../abstract/component.abstract';
 
 export interface BurgerElement {
 	Burger: BurgerComponent
@@ -34,6 +33,7 @@ export class BurgerComponent extends Component<IBurger, null> implements IBurger
 
 	constructor(config?: IBurger) {
 		super(config);
+		super.init();
 	}
 
 	onInit() {

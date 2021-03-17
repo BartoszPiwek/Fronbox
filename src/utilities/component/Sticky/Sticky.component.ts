@@ -1,7 +1,7 @@
-import { Component, IComponentConfig } from "../../scripts/abstract/component";
+import { Component, IComponentConfig } from "../../abstract/component.abstract";
 
 interface IStickyComponent extends IComponentConfig {
- onChange?: (value: boolean) => void;
+	onChange?: (value: boolean) => void;
 }
 
 export class StickyComponent extends Component implements IStickyComponent {
@@ -10,7 +10,8 @@ export class StickyComponent extends Component implements IStickyComponent {
 	public isActive: boolean = false;
 
 	constructor(config?: IStickyComponent) {
-		super(config)
+		super(config);
+		super.init();
 	}
 
 	onInit() {
@@ -22,7 +23,7 @@ export class StickyComponent extends Component implements IStickyComponent {
 					case true:
 						this.element.classList.add('isSticky');
 						break;
-				
+
 					default:
 						this.element.classList.remove('isSticky');
 						break;
@@ -31,9 +32,9 @@ export class StickyComponent extends Component implements IStickyComponent {
 				this.onChange && this.onChange(isActive);
 				this.isActive = isActive;
 			},
-			{threshold: [1]}
+			{ threshold: [1] }
 		);
-	
+
 		observer.observe(this.element);
 	}
 }

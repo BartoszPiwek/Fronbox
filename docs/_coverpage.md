@@ -1,12 +1,8 @@
 ![logo](_media/icon.svg)
 
-# FrontBox <small>0.1.0</small>
+# FrontBox <small>1.0.0</small>
 
-> Static WWW builder tool.
+> Front-end Development Boilerplate
 
--   Simple and lightweight
--   No statically built html files
--   Multiple themes
-
-[GitHub](https://github.com/docsifyjs/docsify/)
+[GitHub](https://github.com/BartoszPiwek/FrontBox)
 [Get Started](#docsify)

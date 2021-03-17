@@ -9,7 +9,7 @@ export interface IComponentEventListener {
 	type: keyof HTMLElementEventMap;
 	passParams?: any;
 
-	fn: (params: any) => void;
+	wrapperFn: (params: any) => void;
 }
 
 export abstract class Component<Constructor = IComponentConfig, Params = any> {
@@ -18,10 +18,12 @@ export abstract class Component<Constructor = IComponentConfig, Params = any> {
 	private readonly _eventsListenerArray: IComponentEventListener[] = [];
 
 	protected constructor(config?: Constructor) {
+		this.setConfig(config);
+	}
+
+	protected init() {
 		/* Run function before initialization */
 		this.beforeInit && this.beforeInit();
-
-		this.setConfig(config);
 
 		if (!this.element) {
 			return
@@ -105,7 +107,7 @@ export abstract class Component<Constructor = IComponentConfig, Params = any> {
 	public destroy() {
 		if (this._eventsListenerArray.length) {
 			this._eventsListenerArray.map(event => {
-				event.element.removeEventListener(event.type, event.fn);
+				event.element.removeEventListener(event.type, event.wrapperFn);
 			})
 		}
 
@@ -121,9 +123,9 @@ export abstract class Component<Constructor = IComponentConfig, Params = any> {
 	};
 
 	protected addEventListener(element: HTMLElement | Window, type: keyof HTMLElementEventMap, fn: (params: any) => void, passParams?: any) {
-		let _fn: (e: MouseEvent) => void;
+		let wrapperFn: (e: MouseEvent) => void;
 
-		element.addEventListener(type, _fn = (e: MouseEvent) => {
+		element.addEventListener(type, wrapperFn = (e: MouseEvent) => {
 			if (passParams) {
 				fn(passParams);
 			} else {
@@ -131,7 +133,7 @@ export abstract class Component<Constructor = IComponentConfig, Params = any> {
 			}
 		}, false)
 
-		this._eventsListenerArray.push({ element, type, fn, passParams });
+		this._eventsListenerArray.push({ element, type, wrapperFn, passParams });
 	}
 
 	protected beforeInit?(): void;

@@ -5,14 +5,13 @@ export const imagesRules: webpack.RuleSetRule[] = [
 		test: /\.(png|jpe?g|gif)$/i,
 		use: [
 			{
-				loader: 'file-loader',
+				loader: 'responsive-loader',
 				options: {
-					esModule: false,
+					adapter: require('responsive-loader/sharp'),
 					name: '[name][hash].[ext]',
 					outputPath: 'static/images'
-				},
+				}
 			},
-			{ loader: "webpack-image-resize-loader" },
 		],
 	}
 ]

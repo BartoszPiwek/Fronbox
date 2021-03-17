@@ -1,0 +1,5 @@
+@mixin sticky-active {
+	&.isSticky {
+		@content;
+	}
+}

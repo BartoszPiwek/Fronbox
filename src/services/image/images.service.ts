@@ -1,18 +1,19 @@
-import { getElements } from '../../scripts/tools/DOM';
-import LazyLoad from "lazyload";
+import LazyLoad, { ILazyLoadInstance } from "vanilla-lazyload";
 
 export class ImagesService {
+	private lazyload: ILazyLoadInstance;
+
 	constructor() {
-		this.bindImages();
+		this.lazyload = new LazyLoad({
+			use_native: false,
+			unobserve_entered: true,
+			// @ts-ignore Missing type
+			class_entered: 'isEntered',
+			class_loaded: 'isLoaded',
+		});
 	}
 
-	bindImages(element: HTMLElement = null) {
-		const elements = getElements('[data-src]:not([src])', element);
-
-		if (!elements.length) {
-			return
-		}
-
-		new LazyLoad(elements);
+	public update() {
+		this.lazyload.update();
 	}
 }
