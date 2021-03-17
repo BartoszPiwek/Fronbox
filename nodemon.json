@@ -1,7 +1,4 @@
 {
-  "watch": [
-    "webpack.common.ts",
-    "webpack.dev.ts",
-    "./builder/*.webpack.ts"
-  ]
+	"watch": ["webpack.common.ts", "webpack.dev.ts", "builder"],
+	"exec": ["ts"]
 }

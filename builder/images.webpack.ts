@@ -9,7 +9,9 @@ export const imagesRules: webpack.RuleSetRule[] = [
 				options: {
 					adapter: require('responsive-loader/sharp'),
 					name: '[name][hash].[ext]',
-					outputPath: 'static/images'
+					outputPath: 'static/images',
+					placeholder: true,
+					placeholderSize: 50
 				}
 			},
 		],

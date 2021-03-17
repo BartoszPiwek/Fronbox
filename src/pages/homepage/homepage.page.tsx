@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
-import { ImageElement } from '../../services/image/components/ImageElement/ImageElement'
 import { Layout } from '../../layouts/Layout'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
@@ -10,6 +9,7 @@ import { Button } from '../../utilities/component/Button/Button'
 import { Icon } from '../../utilities/component/Icon/Icon'
 import { Loader } from '../../utilities/component/Loader/Loader'
 import { Wrap } from '../../utilities/component/Wrap/Wrap'
+import { ImageElement } from '../../services/lazyload/components/ImageElement/ImageElement'
 
 class Page extends React.Component {
 	render() {
@@ -17,13 +17,10 @@ class Page extends React.Component {
 			<Layout title="Hello World" description="Template page">
 				<Header />
 				<Loader></Loader>
-				<div style={{ width: 300 }}>
+				<div style={{ width: 100 }}>
 					<ImageElement
-						image={require('@images/frontbox.png?{placeholder:true, sizes: [50, 100]}')}
+						image={require('@images/frontbox.png?{sizes: [50, 100]}')}
 						alt="Frontbox Image"
-						width={50}
-						height={50}
-						hasPlaceholder={true}
 					/>
 				</div>
 

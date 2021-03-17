@@ -1,8 +1,8 @@
-import { ImagesService } from './../services/image/images.service';
 import { BrowserService } from '../services/browser/browser.service';
+import { LazyloadService } from '../services/lazyload/lazyload.service';
 
 export const browserService = new BrowserService();
-export const imagesService = new ImagesService();
+export const lazyloadService = new LazyloadService();
 
 window.addEventListener('load', () => {
 }, { once: true });
