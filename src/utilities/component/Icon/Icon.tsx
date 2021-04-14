@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 export interface IIcon {
-	file: string
-	width?: number
-	height?: number
+	file: string;
+	width?: number;
+	height?: number;
 }
 
 export const Icon = (params: IIcon) => {
-	const { file, width, height } = params
+	const { file, width, height } = params;
 
-	const iconTemplate = require(`@icons/${file}.svg`) as string
+	const iconTemplate = require(`@icons/${file}.svg`) as string;
 
 	return (
 		<div
@@ -24,5 +24,5 @@ export const Icon = (params: IIcon) => {
 					.replace(`xmlns="http://www.w3.org/2000/svg"`, ''),
 			}}
 		></div>
-	)
-}
+	);
+};

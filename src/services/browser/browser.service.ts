@@ -47,7 +47,7 @@ export class BrowserService {
 
 		/* Prepare variables */
 		let direction: string;
-		let top = window.pageYOffset || html.scrollTop || document.documentElement.scrollTop;
+		let top = window.pageYOffset || html.scrollTop
 
 		/* Check scroll direction */
 		if (top < lastTop) {

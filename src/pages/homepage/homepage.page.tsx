@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
-import { Layout } from '../../layouts/Layout'
-import { Footer } from '../../components/Footer/Footer'
-import { Header } from '../../components/Header/Header'
-import { Burger } from '../../utilities/component/Burger/Burger'
-import { Button } from '../../utilities/component/Button/Button'
-import { Icon } from '../../utilities/component/Icon/Icon'
-import { Loader } from '../../utilities/component/Loader/Loader'
-import { Wrap } from '../../utilities/component/Wrap/Wrap'
-import { ImageElement } from '../../services/lazyload/components/ImageElement/ImageElement'
+import { Layout } from '../../layouts/Layout';
+import { Footer } from '../../components/Footer/Footer';
+import { Header } from '../../components/Header/Header';
+import { Burger } from '../../utilities/component/Burger/Burger';
+import { Button } from '../../utilities/component/Button/Button';
+import { Icon } from '../../utilities/component/Icon/Icon';
+import { Loader } from '../../utilities/component/Loader/Loader';
+import { Wrap } from '../../utilities/component/Wrap/Wrap';
+import { ImageElement } from '../../services/lazyload/components/ImageElement/ImageElement';
 
 class Page extends React.Component {
 	render() {
@@ -43,8 +43,8 @@ class Page extends React.Component {
 
 				<Footer />
 			</Layout>
-		)
+		);
 	}
 }
 
-export default ReactDOMServer.renderToStaticMarkup(<Page />)
+export default ReactDOMServer.renderToStaticMarkup(<Page />);

@@ -8,7 +8,7 @@ export const imagesRules: webpack.RuleSetRule[] = [
 				loader: 'responsive-loader',
 				options: {
 					adapter: require('responsive-loader/sharp'),
-					name: '[name][hash].[ext]',
+					name: '[name].[ext]',
 					outputPath: 'static/images',
 					placeholder: true,
 					placeholderSize: 50
