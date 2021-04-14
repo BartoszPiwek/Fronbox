@@ -37,7 +37,10 @@ export default {
 			...imagesRules,
 			{
 				test: /\.(svg)$/i,
-				loader: 'svg-inline-loader'
+				loader: 'raw-loader',
+				options: {
+					esModule: false,
+				},
 			}
 		]
 	},

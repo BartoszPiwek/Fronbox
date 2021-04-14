@@ -1,5 +1,4 @@
 import webpack from "webpack";
-import HtmlWebpackInlineSVGPlugin from 'html-webpack-inline-svg-plugin';
 import { pages } from "../src/pages";
 
 export const htmlTsxRulesDev: webpack.RuleSetRule = {
@@ -16,5 +15,4 @@ export const htmlTsxRulesDev: webpack.RuleSetRule = {
 
 export const htmlTsxPlugins = [
 	...pages,
-	new HtmlWebpackInlineSVGPlugin()
 ]
