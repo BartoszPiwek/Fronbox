@@ -1,4 +1,4 @@
-import { imagesRules } from './builder/images.webpack';
+import { imagesRules } from './webpack/images.webpack';
 import * as path from 'path';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 
@@ -6,7 +6,7 @@ export default {
 	resolve: {
 		unsafeCache: true,
 		symlinks: false,
-		extensions: [".ts", ".js", ".tsx", ".png"],
+		extensions: ['.ts', '.js', '.tsx', '.png'],
 		alias: {
 			'@components': path.resolve(__dirname, 'src/components/'),
 			'@templates': path.resolve(__dirname, 'src/template/'),
@@ -15,17 +15,14 @@ export default {
 			'@utilities': path.resolve(__dirname, 'src/utilities/'),
 			'@modals': path.resolve(__dirname, 'src/modals/'),
 			'@styles': path.resolve(__dirname, 'src/style/'),
-		}
+		},
 	},
 	watchOptions: {
 		poll: true,
 		ignored: '/node_modules/',
 	},
 	target: 'web',
-	entry: [
-		'./src/index.ts',
-		'./src/styles.scss'
-	],
+	entry: ['./src/index.ts', './src/styles.scss'],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[contenthash].js',
@@ -41,8 +38,8 @@ export default {
 				options: {
 					esModule: false,
 				},
-			}
-		]
+			},
+		],
 	},
 	plugins: [
 		new FaviconsWebpackPlugin({
@@ -52,6 +49,6 @@ export default {
 			inject: true,
 			publicPath: 'static/favicons',
 			prefix: '',
-		})
-	]
+		}),
+	],
 };

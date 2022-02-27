@@ -5,7 +5,6 @@ import { Layout } from '../../layouts/Layout';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { Burger } from '../../utilities/component/Burger/Burger';
-import { Button } from '../../utilities/component/Button/Button';
 import { Icon } from '../../utilities/component/Icon/Icon';
 import { Loader } from '../../utilities/component/Loader/Loader';
 import { Wrap } from '../../utilities/component/Wrap/Wrap';
@@ -27,8 +26,7 @@ class Page extends React.Component {
 				<Icon file="close" width={20} height={20}></Icon>
 
 				<Wrap>
-					<Burger />
-					<Button>Button</Button>
+					<Burger attr={{ id: 'burger' }} />
 
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.

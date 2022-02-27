@@ -1,9 +1,9 @@
-import { htmlTsxPlugins, htmlTsxRulesDev } from './builder/html-tsx.webpack';
+import { htmlTsxPlugins, htmlTsxRulesDev } from './webpack/html-tsx.webpack';
 import { merge } from 'webpack-merge';
 import commonConfig from './webpack.common';
-import { scssRulesDev } from './builder/scss.webpack';
-import FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
-import { tsRulesDev } from './builder/ts.webpack';
+import { scssRulesDev } from './webpack/scss.webpack';
+import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
+import { tsRulesDev } from './webpack/ts.webpack';
 import { port, proxy } from './src/site';
 
 module.exports = merge(commonConfig, {
@@ -15,9 +15,6 @@ module.exports = merge(commonConfig, {
 		hot: true,
 		port: port,
 		proxy: proxy,
-		disableHostCheck: true,
-		contentBase: "src/**/*.(tsx|ts|php)",
-		watchContentBase: true,
 	},
 	plugins: [
 		...htmlTsxPlugins,
@@ -26,10 +23,6 @@ module.exports = merge(commonConfig, {
 		}),
 	],
 	module: {
-		rules: [
-			...scssRulesDev,
-			...tsRulesDev,
-			htmlTsxRulesDev
-		]
-	}
-})
+		rules: [...scssRulesDev, ...tsRulesDev, htmlTsxRulesDev],
+	},
+});

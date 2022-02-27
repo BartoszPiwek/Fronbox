@@ -10,5 +10,10 @@
 		"esModuleInterop": true,
 		"declaration": false
 	},
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules"],
+	"paths": {
+		"@component/*": ["src/component/"],
+		"@layouts/*": ["src/layouts/"],
+		"@pages/*": ["src/pages/*"]
+	}
 }

@@ -1,14 +1,13 @@
 import { Component, IComponentConfig } from '../../abstract/component.abstract';
 
-export interface BurgerElement {
-	Burger: BurgerComponent
-}
-
 export interface IBurger extends IComponentConfig {
 	onClick?: (value: boolean) => void;
 }
 
-export class BurgerComponent extends Component<IBurger, null> implements IBurger {
+export class BurgerComponent
+	extends Component<IBurger, null>
+	implements IBurger
+{
 	public onClick: (value: boolean) => void;
 
 	private _isActive: boolean = false;

@@ -1,16 +1,16 @@
-import { htmlTsxPlugins, htmlTsxRulesDev } from './builder/html-tsx.webpack';
+import { htmlTsxPlugins, htmlTsxRulesDev } from './webpack/html-tsx.webpack';
 import { merge } from 'webpack-merge';
 import commonConfig from './webpack.common';
-import { scssPluginsProd, scssRulesProd } from './builder/scss.webpack';
+import { scssPluginsProd, scssRulesProd } from './webpack/scss.webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { tsRulesDev } from './builder/ts.webpack';
+import { tsRulesDev } from './webpack/ts.webpack';
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 
 module.exports = merge(commonConfig, {
 	// @ts-ignore
 	optimization: {
-		splitChunks: { chunks: "all" },
-		moduleIds: 'named'
+		splitChunks: { chunks: 'all' },
+		moduleIds: 'named',
 	},
 	mode: 'production',
 	plugins: [
@@ -40,10 +40,6 @@ module.exports = merge(commonConfig, {
 		}),
 	],
 	module: {
-		rules: [
-			...scssRulesProd,
-			htmlTsxRulesDev,
-			...tsRulesDev,
-		]
-	}
-})
+		rules: [...scssRulesProd, htmlTsxRulesDev, ...tsRulesDev],
+	},
+});

@@ -1,13 +1,13 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
 interface IBurger {
-	className?: string
-	attr?: { [key: string]: string }
+	className?: string;
+	attr?: { [key: string]: string };
 }
 
 export const Burger = (params: IBurger) => {
-	const { className, attr } = params
+	const { className, attr } = params;
 
 	return (
 		<button
@@ -17,5 +17,5 @@ export const Burger = (params: IBurger) => {
 		>
 			<span></span>
 		</button>
-	)
-}
+	);
+};

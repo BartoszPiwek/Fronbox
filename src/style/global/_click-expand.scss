@@ -1,5 +1,4 @@
 .click-expand {
-	@extend %click-expand-style;
-
+	@include click-expand-style;
 	@include click-expand(10px);
 }
